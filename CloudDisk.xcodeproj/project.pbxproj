@@ -1,0 +1,540 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7109A76A1D7E6D0F00C520BC /* CatalogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7109A7691D7E6D0F00C520BC /* CatalogViewController.m */; };
+		715B4A921D7D4D2600F8C338 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B4A911D7D4D2600F8C338 /* main.m */; };
+		715B4A951D7D4D2600F8C338 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B4A941D7D4D2600F8C338 /* AppDelegate.m */; };
+		715B4A981D7D4D2600F8C338 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B4A971D7D4D2600F8C338 /* ViewController.m */; };
+		715B4A9B1D7D4D2600F8C338 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 715B4A991D7D4D2600F8C338 /* Main.storyboard */; };
+		715B4A9E1D7D4D2600F8C338 /* CloudDisk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 715B4A9C1D7D4D2600F8C338 /* CloudDisk.xcdatamodeld */; };
+		715B4AA01D7D4D2600F8C338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 715B4A9F1D7D4D2600F8C338 /* Assets.xcassets */; };
+		715B4AA31D7D4D2600F8C338 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 715B4AA11D7D4D2600F8C338 /* LaunchScreen.storyboard */; };
+		715B4AB21D7D52EC00F8C338 /* PublicCloudViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B4AB11D7D52EC00F8C338 /* PublicCloudViewController.m */; };
+		715B4AB81D7D56F900F8C338 /* SRConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B4AB71D7D56F900F8C338 /* SRConst.m */; };
+		715B4ABB1D7D594A00F8C338 /* CustomTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B4ABA1D7D594A00F8C338 /* CustomTopView.m */; };
+		715B4ABF1D7D5CE200F8C338 /* AdjustFontSizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B4ABE1D7D5CE200F8C338 /* AdjustFontSizeView.m */; };
+		715B4AC21D7D693F00F8C338 /* PublicCloudCatalogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B4AC11D7D693F00F8C338 /* PublicCloudCatalogTableViewCell.m */; };
+		715B4AC51D7D7D5400F8C338 /* BottomFileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B4AC41D7D7D5400F8C338 /* BottomFileView.m */; };
+		715B8AE91D7FB645004B66DD /* ToolTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B8AE81D7FB645004B66DD /* ToolTableViewCell.m */; };
+		715B8AEC1D7FF8C7004B66DD /* TotalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B8AEB1D7FF8C7004B66DD /* TotalModel.m */; };
+		CD8C0A2D6BAF86F3CDDC0D01 /* libPods-CloudDisk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B86388346802326CA4BAC88 /* libPods-CloudDisk.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		12C18D9DC7325539393BF1B5 /* Pods-CloudDisk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudDisk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CloudDisk/Pods-CloudDisk.debug.xcconfig"; sourceTree = "<group>"; };
+		1AF8FE9CA05FE2CEBD566A98 /* Pods-CloudDisk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudDisk.release.xcconfig"; path = "Pods/Target Support Files/Pods-CloudDisk/Pods-CloudDisk.release.xcconfig"; sourceTree = "<group>"; };
+		3B86388346802326CA4BAC88 /* libPods-CloudDisk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CloudDisk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7109A7681D7E6D0F00C520BC /* CatalogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalogViewController.h; sourceTree = "<group>"; };
+		7109A7691D7E6D0F00C520BC /* CatalogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogViewController.m; sourceTree = "<group>"; };
+		715B4A8D1D7D4D2600F8C338 /* CloudDisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudDisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		715B4A911D7D4D2600F8C338 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		715B4A931D7D4D2600F8C338 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		715B4A941D7D4D2600F8C338 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		715B4A961D7D4D2600F8C338 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		715B4A971D7D4D2600F8C338 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		715B4A9A1D7D4D2600F8C338 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		715B4A9D1D7D4D2600F8C338 /* CloudDisk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CloudDisk.xcdatamodel; sourceTree = "<group>"; };
+		715B4A9F1D7D4D2600F8C338 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		715B4AA21D7D4D2600F8C338 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		715B4AA41D7D4D2600F8C338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		715B4AB01D7D52EC00F8C338 /* PublicCloudViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicCloudViewController.h; sourceTree = "<group>"; };
+		715B4AB11D7D52EC00F8C338 /* PublicCloudViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicCloudViewController.m; sourceTree = "<group>"; };
+		715B4AB61D7D56F800F8C338 /* SRConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRConst.h; path = CloudDisk/SRConst.h; sourceTree = "<group>"; };
+		715B4AB71D7D56F900F8C338 /* SRConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRConst.m; path = CloudDisk/SRConst.m; sourceTree = "<group>"; };
+		715B4AB91D7D594A00F8C338 /* CustomTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTopView.h; sourceTree = "<group>"; };
+		715B4ABA1D7D594A00F8C338 /* CustomTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTopView.m; sourceTree = "<group>"; };
+		715B4ABD1D7D5CE200F8C338 /* AdjustFontSizeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustFontSizeView.h; sourceTree = "<group>"; };
+		715B4ABE1D7D5CE200F8C338 /* AdjustFontSizeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdjustFontSizeView.m; sourceTree = "<group>"; };
+		715B4AC01D7D693F00F8C338 /* PublicCloudCatalogTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicCloudCatalogTableViewCell.h; sourceTree = "<group>"; };
+		715B4AC11D7D693F00F8C338 /* PublicCloudCatalogTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicCloudCatalogTableViewCell.m; sourceTree = "<group>"; };
+		715B4AC31D7D7D5400F8C338 /* BottomFileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomFileView.h; sourceTree = "<group>"; };
+		715B4AC41D7D7D5400F8C338 /* BottomFileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomFileView.m; sourceTree = "<group>"; };
+		715B8AE71D7FB645004B66DD /* ToolTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolTableViewCell.h; sourceTree = "<group>"; };
+		715B8AE81D7FB645004B66DD /* ToolTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolTableViewCell.m; sourceTree = "<group>"; };
+		715B8AEA1D7FF8C7004B66DD /* TotalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalModel.h; sourceTree = "<group>"; };
+		715B8AEB1D7FF8C7004B66DD /* TotalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalModel.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		715B4A8A1D7D4D2600F8C338 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD8C0A2D6BAF86F3CDDC0D01 /* libPods-CloudDisk.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		715B4A841D7D4D2600F8C338 = {
+			isa = PBXGroup;
+			children = (
+				715B4A8F1D7D4D2600F8C338 /* CloudDisk */,
+				715B4ABC1D7D5CB000F8C338 /* CommondTool */,
+				715B4AAF1D7D524900F8C338 /* PublicCloud */,
+				715B4AAE1D7D524600F8C338 /* PrivateCloud */,
+				715B4AAD1D7D4E4500F8C338 /* UpLoadFile */,
+				715B4AAC1D7D4E4200F8C338 /* DownLoadFile */,
+				715B4AAB1D7D4E3F00F8C338 /* DeleteFile */,
+				715B4AAA1D7D4E3B00F8C338 /* MoreOperation */,
+				715B4A8E1D7D4D2600F8C338 /* Products */,
+				C7E34E752B0D1DA31D05F490 /* Pods */,
+				A656F39A8C75CFB83B3EDACE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		715B4A8E1D7D4D2600F8C338 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				715B4A8D1D7D4D2600F8C338 /* CloudDisk.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		715B4A8F1D7D4D2600F8C338 /* CloudDisk */ = {
+			isa = PBXGroup;
+			children = (
+				715B4A931D7D4D2600F8C338 /* AppDelegate.h */,
+				715B4A941D7D4D2600F8C338 /* AppDelegate.m */,
+				715B4A961D7D4D2600F8C338 /* ViewController.h */,
+				715B4A971D7D4D2600F8C338 /* ViewController.m */,
+				715B4A991D7D4D2600F8C338 /* Main.storyboard */,
+				715B4A9F1D7D4D2600F8C338 /* Assets.xcassets */,
+				715B4AA11D7D4D2600F8C338 /* LaunchScreen.storyboard */,
+				715B4AA41D7D4D2600F8C338 /* Info.plist */,
+				715B4A9C1D7D4D2600F8C338 /* CloudDisk.xcdatamodeld */,
+				715B4A901D7D4D2600F8C338 /* Supporting Files */,
+			);
+			path = CloudDisk;
+			sourceTree = "<group>";
+		};
+		715B4A901D7D4D2600F8C338 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				715B4A911D7D4D2600F8C338 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		715B4AAA1D7D4E3B00F8C338 /* MoreOperation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MoreOperation;
+			sourceTree = "<group>";
+		};
+		715B4AAB1D7D4E3F00F8C338 /* DeleteFile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DeleteFile;
+			sourceTree = "<group>";
+		};
+		715B4AAC1D7D4E4200F8C338 /* DownLoadFile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DownLoadFile;
+			sourceTree = "<group>";
+		};
+		715B4AAD1D7D4E4500F8C338 /* UpLoadFile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UpLoadFile;
+			sourceTree = "<group>";
+		};
+		715B4AAE1D7D524600F8C338 /* PrivateCloud */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PrivateCloud;
+			sourceTree = "<group>";
+		};
+		715B4AAF1D7D524900F8C338 /* PublicCloud */ = {
+			isa = PBXGroup;
+			children = (
+				715B4AB51D7D550000F8C338 /* View */,
+				715B4AB31D7D54DC00F8C338 /* Control */,
+				715B4AB41D7D54FC00F8C338 /* Model */,
+			);
+			name = PublicCloud;
+			sourceTree = "<group>";
+		};
+		715B4AB31D7D54DC00F8C338 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				715B4AB01D7D52EC00F8C338 /* PublicCloudViewController.h */,
+				715B4AB11D7D52EC00F8C338 /* PublicCloudViewController.m */,
+				7109A7681D7E6D0F00C520BC /* CatalogViewController.h */,
+				7109A7691D7E6D0F00C520BC /* CatalogViewController.m */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		715B4AB41D7D54FC00F8C338 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				715B8AEA1D7FF8C7004B66DD /* TotalModel.h */,
+				715B8AEB1D7FF8C7004B66DD /* TotalModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		715B4AB51D7D550000F8C338 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				715B4AB91D7D594A00F8C338 /* CustomTopView.h */,
+				715B4ABA1D7D594A00F8C338 /* CustomTopView.m */,
+				715B4AC01D7D693F00F8C338 /* PublicCloudCatalogTableViewCell.h */,
+				715B4AC11D7D693F00F8C338 /* PublicCloudCatalogTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		715B4ABC1D7D5CB000F8C338 /* CommondTool */ = {
+			isa = PBXGroup;
+			children = (
+				715B4ABD1D7D5CE200F8C338 /* AdjustFontSizeView.h */,
+				715B4ABE1D7D5CE200F8C338 /* AdjustFontSizeView.m */,
+				715B4AC31D7D7D5400F8C338 /* BottomFileView.h */,
+				715B4AC41D7D7D5400F8C338 /* BottomFileView.m */,
+				715B4AB61D7D56F800F8C338 /* SRConst.h */,
+				715B4AB71D7D56F900F8C338 /* SRConst.m */,
+				715B8AE71D7FB645004B66DD /* ToolTableViewCell.h */,
+				715B8AE81D7FB645004B66DD /* ToolTableViewCell.m */,
+			);
+			name = CommondTool;
+			sourceTree = "<group>";
+		};
+		A656F39A8C75CFB83B3EDACE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B86388346802326CA4BAC88 /* libPods-CloudDisk.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7E34E752B0D1DA31D05F490 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				12C18D9DC7325539393BF1B5 /* Pods-CloudDisk.debug.xcconfig */,
+				1AF8FE9CA05FE2CEBD566A98 /* Pods-CloudDisk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		715B4A8C1D7D4D2600F8C338 /* CloudDisk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 715B4AA71D7D4D2600F8C338 /* Build configuration list for PBXNativeTarget "CloudDisk" */;
+			buildPhases = (
+				0D2D598794C8F2589BAF6B4F /* [CP] Check Pods Manifest.lock */,
+				715B4A891D7D4D2600F8C338 /* Sources */,
+				715B4A8A1D7D4D2600F8C338 /* Frameworks */,
+				715B4A8B1D7D4D2600F8C338 /* Resources */,
+				53637A3C8626B9AB90F5D41F /* [CP] Embed Pods Frameworks */,
+				A257DC1ACBB660FF10BF3788 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CloudDisk;
+			productName = CloudDisk;
+			productReference = 715B4A8D1D7D4D2600F8C338 /* CloudDisk.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		715B4A851D7D4D2600F8C338 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = suorui;
+				TargetAttributes = {
+					715B4A8C1D7D4D2600F8C338 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 715B4A881D7D4D2600F8C338 /* Build configuration list for PBXProject "CloudDisk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 715B4A841D7D4D2600F8C338;
+			productRefGroup = 715B4A8E1D7D4D2600F8C338 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				715B4A8C1D7D4D2600F8C338 /* CloudDisk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		715B4A8B1D7D4D2600F8C338 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				715B4AA31D7D4D2600F8C338 /* LaunchScreen.storyboard in Resources */,
+				715B4AA01D7D4D2600F8C338 /* Assets.xcassets in Resources */,
+				715B4A9B1D7D4D2600F8C338 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D2D598794C8F2589BAF6B4F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		53637A3C8626B9AB90F5D41F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CloudDisk/Pods-CloudDisk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A257DC1ACBB660FF10BF3788 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CloudDisk/Pods-CloudDisk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		715B4A891D7D4D2600F8C338 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				715B4AB81D7D56F900F8C338 /* SRConst.m in Sources */,
+				715B4A9E1D7D4D2600F8C338 /* CloudDisk.xcdatamodeld in Sources */,
+				715B4A981D7D4D2600F8C338 /* ViewController.m in Sources */,
+				715B8AE91D7FB645004B66DD /* ToolTableViewCell.m in Sources */,
+				715B4A951D7D4D2600F8C338 /* AppDelegate.m in Sources */,
+				715B4ABB1D7D594A00F8C338 /* CustomTopView.m in Sources */,
+				7109A76A1D7E6D0F00C520BC /* CatalogViewController.m in Sources */,
+				715B8AEC1D7FF8C7004B66DD /* TotalModel.m in Sources */,
+				715B4AC51D7D7D5400F8C338 /* BottomFileView.m in Sources */,
+				715B4AC21D7D693F00F8C338 /* PublicCloudCatalogTableViewCell.m in Sources */,
+				715B4A921D7D4D2600F8C338 /* main.m in Sources */,
+				715B4AB21D7D52EC00F8C338 /* PublicCloudViewController.m in Sources */,
+				715B4ABF1D7D5CE200F8C338 /* AdjustFontSizeView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		715B4A991D7D4D2600F8C338 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				715B4A9A1D7D4D2600F8C338 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		715B4AA11D7D4D2600F8C338 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				715B4AA21D7D4D2600F8C338 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		715B4AA51D7D4D2600F8C338 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		715B4AA61D7D4D2600F8C338 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		715B4AA81D7D4D2600F8C338 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12C18D9DC7325539393BF1B5 /* Pods-CloudDisk.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CloudDisk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.searchingsoft.CloudDisk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		715B4AA91D7D4D2600F8C338 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AF8FE9CA05FE2CEBD566A98 /* Pods-CloudDisk.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CloudDisk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.searchingsoft.CloudDisk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		715B4A881D7D4D2600F8C338 /* Build configuration list for PBXProject "CloudDisk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				715B4AA51D7D4D2600F8C338 /* Debug */,
+				715B4AA61D7D4D2600F8C338 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		715B4AA71D7D4D2600F8C338 /* Build configuration list for PBXNativeTarget "CloudDisk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				715B4AA81D7D4D2600F8C338 /* Debug */,
+				715B4AA91D7D4D2600F8C338 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		715B4A9C1D7D4D2600F8C338 /* CloudDisk.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				715B4A9D1D7D4D2600F8C338 /* CloudDisk.xcdatamodel */,
+			);
+			currentVersion = 715B4A9D1D7D4D2600F8C338 /* CloudDisk.xcdatamodel */;
+			path = CloudDisk.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 715B4A851D7D4D2600F8C338 /* Project object */;
+}

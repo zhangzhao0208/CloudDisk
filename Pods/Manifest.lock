@@ -1,0 +1,53 @@
+PODS:
+  - AFNetworking (2.4.1):
+    - AFNetworking/NSURLConnection (= 2.4.1)
+    - AFNetworking/NSURLSession (= 2.4.1)
+    - AFNetworking/Reachability (= 2.4.1)
+    - AFNetworking/Security (= 2.4.1)
+    - AFNetworking/Serialization (= 2.4.1)
+    - AFNetworking/UIKit (= 2.4.1)
+  - AFNetworking/NSURLConnection (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.4.1)
+  - AFNetworking/Security (2.4.1)
+  - AFNetworking/Serialization (2.4.1)
+  - AFNetworking/UIKit (2.4.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - Masonry (0.6.3)
+  - MBProgressHUD (0.9.1)
+  - MJRefresh (3.0.7)
+  - Reachability (3.0.0)
+  - YYModel (0.9.8)
+  - YYText (0.9.16)
+  - YYWebImage (0.9.11)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.4.0)
+  - Masonry (~> 0.6.3)
+  - MBProgressHUD (~> 0.9.1)
+  - MJRefresh (~> 3.0.1)
+  - Reachability (~> 3.0.0)
+  - YYModel
+  - YYText
+  - YYWebImage
+
+SPEC CHECKSUMS:
+  AFNetworking: 41d45d2c14219af0fa5addf3cfd433a002c13c9f
+  Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  MJRefresh: f3e1228ec3d38c7ba5208d58032631a52f39f495
+  Reachability: 31e4272bd8378e094beaf6609dc182c85c4e6574
+  YYModel: 4da6b5c42a850e5c81c800de5ba69afe675c6e6f
+  YYText: d6d716cd8b776e1aa57b2ddb5f3495ee7d97ce49
+  YYWebImage: a65b28461dc63d3b84de7c06ea0fbc4d46cdcd16
+
+PODFILE CHECKSUM: 932a697f7f5cdb8ca82b25edc42356dd61b66a28
+
+COCOAPODS: 1.0.1
