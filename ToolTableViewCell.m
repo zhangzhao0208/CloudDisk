@@ -24,20 +24,20 @@
 }
 -(void)createBottmButtonView
 {
-    NSArray*fileNameArray =[ NSArray arrayWithObjects:@"上传文件",@"下载文件",@"删除文件",@"更多", nil];
-    self.backgroundColor= REB(240, 240, 240, 1);
+    NSArray*fileNameArray =[ NSArray arrayWithObjects:@"下载文件",@"打开文件", nil];
+    self.backgroundColor= REB(225, 255, 255, 1);
     UIButton*lastButton =nil;
-    float rowSpace = (WIDTH-(120.0f*WIDTH/720.0f)*4-(25.0f*WIDTH/720.0f)*2)/3.0f;
-    for (int i =0; i<4; i++) {
+//    float rowSpace = (WIDTH-(120.0f*WIDTH/720.0f)*fileNameArray.count-(25.0f*WIDTH/720.0f)*2)/(fileNameArray.count-1);
+    for (int i =0; i<fileNameArray.count; i++) {
         UIButton * fileButton =[UIButton buttonWithType:UIButtonTypeCustom];
-        fileButton.backgroundColor = [UIColor yellowColor];
-        [fileButton setBackgroundImage:[UIImage imageNamed:@"menubg"] forState:UIControlStateNormal];
-        [fileButton setBackgroundImage:[UIImage imageNamed:@"off"] forState:UIControlStateHighlighted];
-             [fileButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [fileButton setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
+//        [fileButton setBackgroundImage:[UIImage imageNamed:@"menubg"] forState:UIControlStateNormal];
+        [fileButton setImage:[UIImage imageNamed:@"menuarrow"] forState:UIControlStateNormal];
+             [fileButton setTitleColor:REB(54, 183, 254, 1) forState:UIControlStateNormal];
+//        [fileButton setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
         
         [fileButton setTitle:fileNameArray[i] forState:UIControlStateNormal];
-        
+        fileButton.titleLabel.font =[UIFont systemFontOfSize:16];
+       
         fileButton.tag = 100+i;
         [fileButton addTarget:self action:@selector(clickFileButton:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:fileButton];
@@ -45,22 +45,43 @@
             make.top.offset(10);
             make.bottom.offset(-10);
             if (lastButton) {
-                make.left.equalTo(lastButton.mas_right);
+                make.left.equalTo(lastButton.mas_right).offset(40);
                 make.width.equalTo(lastButton.mas_width);
             }else
             {
-                make.left.offset(60);
+                make.left.offset(20);
             }
-            if (i==3) {
-                make.right.offset(-60);
+            if (i==fileNameArray.count-1) {
+                make.right.offset(-20);
             }
   
         }];
+        
+        [fileButton layoutIfNeeded];
+        NSLog(@"--%f",fileButton.titleLabel.frame.size.width);
+           fileButton.imageEdgeInsets = UIEdgeInsetsMake(5,0,5,0);
+          fileButton.titleEdgeInsets = UIEdgeInsetsMake(5, 0, 5, 0);
+        fileButton.imageView.bounds = CGRectMake(0, 0, 20, 20);
+//        [fileButton setContentEdgeInsets:UIEdgeInsetsMake(70, 0, 0, 0)];//
+        
+        
+//           fileButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;//设置button的内容横向居中。。设置content是title和image一起变化
         lastButton = fileButton;
         
     }
 }
 
+-(void)clickFileButton:(UIButton*)sender
+{
+    
+    if (sender.tag==100) {
+        
+        
+    }else
+    {
+        
+    }
+}
 
 
 - (void)awakeFromNib {

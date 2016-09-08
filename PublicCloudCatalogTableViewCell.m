@@ -71,29 +71,32 @@
     _catalogButton =[UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:_catalogButton];
     _catalogButton.backgroundColor =[UIColor yellowColor];
+    [_catalogButton setBackgroundImage:[UIImage imageNamed:@"menuarrow"] forState:UIControlStateNormal];
     [_catalogButton addTarget:self action:@selector(clickCatalogButton:) forControlEvents:UIControlEventTouchUpInside];
     [_catalogButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.offset(-15);
         make.centerY.equalTo(_catalogImageView.mas_centerY);
         make.width.and.height.offset(20);
     }];
-    
-    
-    
+  
 }
 
 
 -(void)clickCatalogButton:(UIButton*)sender
 {
     
+    _totalModel.selectedButton=!_totalModel.selectedButton;
+    sender.selected = _totalModel.selectedButton;
     
-    if ( _totalModel.selectedButton==NO) {
-        _totalModel.selectedButton=YES;
-        _totalModel.isFromToolCell=YES;
+    if ( sender.selected ==YES) {
+       
+
+      _catalogButton.transform = CGAffineTransformMakeRotation(M_PI);
          self.insertBlock(_totalModel.selectedRow);
     }else
     {
-        NSLog(@"cell按钮");
+         _catalogButton.transform = CGAffineTransformMakeRotation(0);
+        self.closeCellBlock(_totalModel.selectedRow);
     }
    
     
