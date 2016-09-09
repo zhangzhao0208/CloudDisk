@@ -11,7 +11,7 @@
 #define WIDTH [UIScreen mainScreen].bounds.size.width
 #define HEIGHT [UIScreen mainScreen].bounds.size.height
 #define REB(R,E,D,A) ([UIColor  colorWithRed:R/255.0 green:E/255.0 blue:D/255.0 alpha:A])
-@interface PrivateCloudViewController ()<UITableViewDelegate,UITableViewDataSource,BottomFileViewDelegate>
+@interface PrivateCloudViewController ()<UITableViewDelegate,UITableViewDataSource,BottomFileViewDelegate,SearchBackgroundViewDelegate>
 
 @end
 
@@ -35,6 +35,8 @@
 -(void)changeNavgationBarState
 {
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+    self.navigationController.navigationBar
+    .backgroundColor =[UIColor blackColor];
     self.title=privateCloud ;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:20]};
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:privateCloud style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -53,6 +55,8 @@
 }
 -(void)createSearchView
 {
+    
+    __block PrivateCloudViewController*private = self;
     SearchBarView*searchBarView =[[SearchBarView alloc]initWithFrame:CGRectMake(0, 64, WIDTH, 60)];
     searchBarView.addFolserBlock =^(){
       
@@ -68,15 +72,38 @@
     
     searchBarView.searchBlock = ^{
       
-        self.navigationController.navigationBar.hidden=YES;
-        SearchBackgroundView *searchBackgroundView = [[SearchBackgroundView alloc]initWithFrame:self.view.bounds];
-        
-        [self.view addSubview:searchBackgroundView];
+        [UIView animateWithDuration:0.4 animations:^{
+            self.navigationController.navigationBar.frame = CGRectMake(0, -64, WIDTH, 64);
+//
+            searchBackgroundView = [[SearchBackgroundView alloc]initWithFrame:private.view.bounds];
+            searchBackgroundView.searchBackgroundViewDelegate =self;
+            [private.view addSubview:searchBackgroundView];
+        } completion:^(BOOL finished) {
+              [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+            
+        }];
+
+       
     };
     
     [self.view addSubview:searchBarView];
 }
+-(void)removeSearchBackgroundView
+{
+    
+//     self.navigationController.navigationBar.barTintColor = REB(22, 22, 22, 1);
+    [UIView animateWithDuration:0.4 animations:^{
+          [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        self.navigationController.navigationBar.frame = CGRectMake(0, 0, WIDTH, 64);
+    } completion:^(BOOL finished) {
+        
+        [searchBackgroundView removeFromSuperview];
+      
+    }];
 
+   
+    
+}
 
 -(void)createPublicCloudTableView
 {
@@ -91,10 +118,14 @@
         //        make.top.equalTo(topView.mas_bottom);
         make.top.offset(124);
         make.width.offset(WIDTH);
-        make.bottom.offset(-HEIGHT*110.0f/1280.0f);
+        make.bottom.offset(-49);
         
         
     }];
+    UIView*backView =[UIView new];
+    backView.backgroundColor =REB(240, 240, 240, 1);
+    backView.frame = CGRectMake(0, 0, WIDTH, 10);
+    _catalogTable.tableHeaderView = backView;
     //    self.selectedIndexPath=nil;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -216,6 +247,8 @@
 }
 -(void)createMoreOperationView
 {
+    
+    
     arrowImageView =[UIImageView new];
     arrowImageView.image = [UIImage imageNamed:@"menuarrow"];
     arrowImageView.transform = CGAffineTransformRotate(arrowImageView.transform, -M_PI);
@@ -282,9 +315,10 @@
     }
 }
 
--(void)changeMoreOperationViewPosition
+-(void)changeMoreOperationViewPosition:(UIButton*)sender
+
 {
-    
+    lastOperationBtn = sender;
     [self.view setNeedsUpdateConstraints];
     [self.view updateConstraintsIfNeeded];
     [UIView animateWithDuration:0.5 animations:^{
@@ -305,7 +339,8 @@
     }];
     
 }
--(void)removeMoreOperationView
+-(void)removeMoreOperationView:(UIButton*)sender
+
 {
     [self.view setNeedsUpdateConstraints];
     [self.view updateConstraintsIfNeeded];
@@ -339,7 +374,33 @@
 
 -(void)clickMoreOperationButton:(UIButton*)sender
 {
-    NSLog(@"传输列表");
+    if (sender.tag==200) {
+        
+        lastOperationBtn.selected=NO;
+        [UIView animateWithDuration:0.2 animations:^{
+            
+            [arrowImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+                
+                make.width.offset(0);
+                make.height.offset(0);
+            }];
+            [moreOperatinView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.right.offset(-60.0f*WIDTH/720.0f);
+                make.width.offset(0);
+                make.height.offset(0);
+                
+            }];
+            [self.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            TransportListViewController *transportlistViewController =[TransportListViewController new];
+            [self.navigationController pushViewController:transportlistViewController animated:YES];
+            [self.view setNeedsUpdateConstraints];
+            [self.view updateConstraintsIfNeeded];
+        }];
+
+        NSLog(@"传输列表");
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

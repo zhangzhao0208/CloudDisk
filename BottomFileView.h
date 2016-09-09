@@ -19,8 +19,8 @@ typedef void(^DeleteLoadBlock)(NSString*);
 typedef void(^MoreOperationBlock)(NSString*);
 @protocol BottomFileViewDelegate <NSObject>
 
--(void)changeMoreOperationViewPosition;
--(void)removeMoreOperationView;
+-(void)changeMoreOperationViewPosition:(UIButton*)sender;
+-(void)removeMoreOperationView:(UIButton*)sender;
 @end
 @interface BottomFileView : UIView
 @property(nonatomic,copy)UpLoadBlock upLoadBlock;

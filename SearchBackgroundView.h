@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Masonry.h"
+
+@protocol SearchBackgroundViewDelegate <NSObject>
+
+-(void)removeSearchBackgroundView;
+
+@end
 @interface SearchBackgroundView : UIView
 
+@property(nonatomic,assign)id<SearchBackgroundViewDelegate>searchBackgroundViewDelegate;
 @end

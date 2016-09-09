@@ -118,13 +118,13 @@
         
         sender.selected = !sender.selected;
         if (sender.selected==YES) {
-            if ([self.BottomFileDelegate respondsToSelector:@selector(changeMoreOperationViewPosition)]) {
-                [self.BottomFileDelegate changeMoreOperationViewPosition];
+            if ([self.BottomFileDelegate respondsToSelector:@selector(changeMoreOperationViewPosition:)]) {
+                [self.BottomFileDelegate changeMoreOperationViewPosition:sender];
             }
         }else
         {
-            if ([self.BottomFileDelegate respondsToSelector:@selector(removeMoreOperationView)]) {
-                [self.BottomFileDelegate removeMoreOperationView];
+            if ([self.BottomFileDelegate respondsToSelector:@selector(removeMoreOperationView:)]) {
+                [self.BottomFileDelegate removeMoreOperationView:sender];
             }
 
         }

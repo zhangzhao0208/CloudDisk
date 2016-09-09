@@ -1,8 +1,8 @@
 //
-//  PublicCloudCatalogTableViewCell.h
+//  TransportListTableViewCell.h
 //  CloudDisk
 //
-//  Created by suorui on 16/9/5.
+//  Created by suorui on 16/9/9.
 //  Copyright © 2016年 suorui. All rights reserved.
 //
 
@@ -14,8 +14,8 @@
 #import "TotalModel.h"
 
 typedef void(^InsertCellBlock)(NSInteger);
-@interface PublicCloudCatalogTableViewCell : UITableViewCell
 
+@interface TransportListTableViewCell : UITableViewCell
 @property(nonatomic,strong)UILabel *catalogName;
 @property(nonatomic,strong)UILabel *catalogTime;
 @property(nonatomic,strong)UIImageView *catalogImageView;
@@ -26,4 +26,6 @@ typedef void(^InsertCellBlock)(NSInteger);
 @property(nonatomic,assign)NSInteger insertIndex;
 @property(nonatomic,strong)TotalModel*totalModel;
 @property(nonatomic,assign)NSInteger selectedRow;
+
+
 @end

@@ -10,6 +10,8 @@
 #import "YYText.h"
 @interface AdjustFontSizeView : UIView
 +(void)adjustTextFontSize:(float )width WithView:(UIView*)currentView ;
++(CGSize)labelAdjustString:(NSString*)string WithWidth:(float)LabelWidth WithHeight:(float)LabelHeight withFont:(UIFont*)font;
 +(void)adjustTextFontSize:(float )width WithAttributedString:(NSMutableAttributedString*)text;
 +(void)adjustTitleFontSize:(float )width WithView:(UIView*)currentView;
+
 @end

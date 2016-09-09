@@ -1,14 +1,15 @@
 //
-//  PublicCloudCatalogTableViewCell.m
+//  TransportListTableViewCell.m
 //  CloudDisk
 //
-//  Created by suorui on 16/9/5.
+//  Created by suorui on 16/9/9.
 //  Copyright © 2016年 suorui. All rights reserved.
 //
 
-#import "PublicCloudCatalogTableViewCell.h"
+#import "TransportListTableViewCell.h"
 #define WIDTH self.frame.size.width
-@implementation PublicCloudCatalogTableViewCell
+@implementation TransportListTableViewCell
+
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -40,27 +41,15 @@
         make.width.mas_equalTo(_catalogImageView.mas_height);
         
     }];
-//    _catalogName = [UILabel new];
-//    NSMutableAttributedString * attribteText =[[NSMutableAttributedString alloc]initWithString:@"省公司发文"];
-//    _catalogName.backgroundColor =[UIColor redColor];
-//    [AdjustFontSizeView adjustTextFontSize:self.frame.size.width WithAttributedString:attribteText];
-//    _catalogName.attributedText=attribteText;
-//    [self addSubview:_catalogName];
-//   
-//    [_catalogName mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(_catalogImageView.mas_right).offset(10);
-//        make.top.offset (5);
-//        make.height.offset(30);
-//        make.right.offset(-40);
-//
-//    }];
-    
     _catalogName = [UILabel new];
+   
     _catalogName.text=@"省公司发文";
     _catalogName.backgroundColor =[UIColor redColor];
     [AdjustFontSizeView adjustTextFontSize:WIDTH WithView:_catalogName];
     CGSize textSize =[ AdjustFontSizeView labelAdjustString:  _catalogName.text WithWidth:WIDTH-70-40 WithHeight:100 withFont:_catalogName.font];
+    
     [self addSubview:_catalogName];
+    
     [_catalogName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_catalogImageView.mas_right).offset(10);
         make.top.offset (10);
@@ -72,16 +61,19 @@
     _catalogTime = [UILabel new];
     _catalogTime.text = @"2016-06-07 12:40";
     _catalogTime.backgroundColor =[UIColor blueColor];
-    _catalogTime.font = [UIFont systemFontOfSize:12];
+//    [AdjustFontSizeView adjustTextFontSize:WIDTH WithView:_catalogTime];
+       _catalogTime.font = [UIFont systemFontOfSize:12];
     CGSize timeSize =[ AdjustFontSizeView labelAdjustString:  _catalogName.text WithWidth:WIDTH-70-40 WithHeight:100 withFont:_catalogTime.font];
+ 
     [self addSubview:_catalogTime];
     [_catalogTime mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_catalogName.mas_bottom);
         make.width.equalTo(_catalogName.mas_width);
         make.left.equalTo(_catalogImageView.mas_right).offset(10);
+        //        make.bottom.offset(-5);
         make.height.offset(timeSize.height);
     }];
-
+    
     _catalogButton =[UIButton buttonWithType:UIButtonTypeCustom];
     [self addSubview:_catalogButton];
     _catalogButton.backgroundColor =[UIColor yellowColor];
@@ -90,10 +82,9 @@
     [_catalogButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.offset(-15);
         make.centerY.equalTo(_catalogImageView.mas_centerY);
-
         make.width.and.height.offset(20);
     }];
-  
+    
 }
 
 
@@ -104,25 +95,25 @@
     sender.selected = _totalModel.selectedButton;
     
     if ( sender.selected ==YES) {
-       
-
-      _catalogButton.transform = CGAffineTransformMakeRotation(M_PI);
-         self.insertBlock(_totalModel.selectedRow);
+        
+        
+        _catalogButton.transform = CGAffineTransformMakeRotation(M_PI);
+        self.insertBlock(_totalModel.selectedRow);
     }else
     {
-         _catalogButton.transform = CGAffineTransformMakeRotation(0);
+        _catalogButton.transform = CGAffineTransformMakeRotation(0);
         self.closeCellBlock(_totalModel.selectedRow);
     }
-   
+    
     
 }
+
 - (void)setFrame:(CGRect)frame
 {
     frame.size.width = [UIScreen mainScreen].bounds.size.width;
     [super setFrame:frame];
     
 }
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

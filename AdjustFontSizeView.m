@@ -9,7 +9,7 @@
 #import "AdjustFontSizeView.h"
 static float smallScreenTextFont=16;
 static float bigScreenTextFont=18;
-static float ipadScreenTextFont=24;
+static float ipadScreenTextFont=20;
 static float smallScreenTitleFont=16;
 static float bigScreenTitleFont=18;
 static float ipadScreenTitleFont=24;
@@ -51,6 +51,21 @@ static float ipadScreenTitleFont=24;
     }
 
 }
++(CGSize)labelAdjustString:(NSString*)string WithWidth:(float)LabelWidth WithHeight:(float)LabelHeight withFont:(UIFont*)font
+{
+
+    NSDictionary *attribute = @{NSFontAttributeName: font};
+    
+    CGSize retSize = [string boundingRectWithSize:CGSizeMake(LabelWidth, LabelHeight) options:
+                      NSStringDrawingTruncatesLastVisibleLine |NSStringDrawingUsesLineFragmentOrigin |
+                      NSStringDrawingUsesFontLeading
+                                       attributes:attribute
+                                          context:nil].size;
+    
+    return retSize;
+}
+
+
 +(void)adjustTextFontSize:(float )width WithAttributedString:(NSMutableAttributedString*)text
 {
     

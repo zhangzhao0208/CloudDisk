@@ -74,9 +74,8 @@
 //        make.top.equalTo(topView.mas_bottom);
         make.top.offset(64);
         make.width.offset(WIDTH);
-        make.bottom.offset(-HEIGHT*110.0f/1280.0f);
-        
-        
+        make.bottom.offset(-49);
+   
     }];
 //    self.selectedIndexPath=nil;
 }
@@ -275,7 +274,7 @@
     }
 }
 
--(void)changeMoreOperationViewPosition
+-(void)changeMoreOperationViewPosition:(UIButton*)sender
 {
     
     [self.view setNeedsUpdateConstraints];
@@ -298,7 +297,8 @@
     }];
    
 }
--(void)removeMoreOperationView
+-(void)removeMoreOperationView:(UIButton*)sender
+
 {
     [self.view setNeedsUpdateConstraints];
     [self.view updateConstraintsIfNeeded];
@@ -330,7 +330,8 @@
 
 -(void)clickMoreOperationButton:(UIButton*)sender
 {
-    NSLog(@"传输列表");
+    
+      NSLog(@"传输列表");
 }
 -(void)createTopView
 {

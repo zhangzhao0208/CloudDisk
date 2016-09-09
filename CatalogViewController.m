@@ -65,7 +65,7 @@
         //        make.top.equalTo(topView.mas_bottom);
         make.top.offset(64);
         make.width.offset(WIDTH);
-        make.bottom.offset(-HEIGHT*110.0f/1280.0f);
+        make.bottom.offset(-49);
         
     }];
 }

@@ -11,4 +11,8 @@
 @interface SRConst : NSObject
 extern NSString *const publicCloud;
 extern NSString *const privateCloud;
+extern NSString *const transportList;
+extern NSString *const downloadList;
+extern NSString *const uploadList;
+extern NSString *const saveToAlbum;
 @end

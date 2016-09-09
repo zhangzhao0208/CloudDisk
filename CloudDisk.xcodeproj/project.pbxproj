@@ -28,6 +28,8 @@
 		71A0FBD11D8160DC000642B8 /* LXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A0FBCE1D8160DC000642B8 /* LXAlertView.m */; };
 		71A0FBD21D8160DC000642B8 /* UILabel+LXAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A0FBD01D8160DC000642B8 /* UILabel+LXAdd.m */; };
 		71A0FBD51D81653C000642B8 /* SearchBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A0FBD41D81653C000642B8 /* SearchBackgroundView.m */; };
+		71B380F91D828814005B0EF2 /* TransportListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B380F81D828814005B0EF2 /* TransportListViewController.m */; };
+		71B380FC1D828C76005B0EF2 /* TransportListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B380FB1D828C76005B0EF2 /* TransportListTableViewCell.m */; };
 		CD8C0A2D6BAF86F3CDDC0D01 /* libPods-CloudDisk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B86388346802326CA4BAC88 /* libPods-CloudDisk.a */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,10 @@
 		71A0FBD01D8160DC000642B8 /* UILabel+LXAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LXAdd.m"; sourceTree = "<group>"; };
 		71A0FBD31D81653C000642B8 /* SearchBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBackgroundView.h; sourceTree = "<group>"; };
 		71A0FBD41D81653C000642B8 /* SearchBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBackgroundView.m; sourceTree = "<group>"; };
+		71B380F71D828814005B0EF2 /* TransportListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransportListViewController.h; sourceTree = "<group>"; };
+		71B380F81D828814005B0EF2 /* TransportListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransportListViewController.m; sourceTree = "<group>"; };
+		71B380FA1D828C76005B0EF2 /* TransportListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransportListTableViewCell.h; sourceTree = "<group>"; };
+		71B380FB1D828C76005B0EF2 /* TransportListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransportListTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +163,8 @@
 				71A0FBCA1D814993000642B8 /* SearchBarView.m */,
 				71A0FBD31D81653C000642B8 /* SearchBackgroundView.h */,
 				71A0FBD41D81653C000642B8 /* SearchBackgroundView.m */,
+				71B380FA1D828C76005B0EF2 /* TransportListTableViewCell.h */,
+				71B380FB1D828C76005B0EF2 /* TransportListTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -166,6 +174,8 @@
 			children = (
 				71A0FBC61D813E92000642B8 /* PrivateCloudViewController.h */,
 				71A0FBC71D813E92000642B8 /* PrivateCloudViewController.m */,
+				71B380F71D828814005B0EF2 /* TransportListViewController.h */,
+				71B380F81D828814005B0EF2 /* TransportListViewController.m */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -392,11 +402,13 @@
 				715B4A981D7D4D2600F8C338 /* ViewController.m in Sources */,
 				715B8AE91D7FB645004B66DD /* ToolTableViewCell.m in Sources */,
 				715B4A951D7D4D2600F8C338 /* AppDelegate.m in Sources */,
+				71B380FC1D828C76005B0EF2 /* TransportListTableViewCell.m in Sources */,
 				715B4ABB1D7D594A00F8C338 /* CustomTopView.m in Sources */,
 				7109A76A1D7E6D0F00C520BC /* CatalogViewController.m in Sources */,
 				715B8AEC1D7FF8C7004B66DD /* TotalModel.m in Sources */,
 				715B4AC51D7D7D5400F8C338 /* BottomFileView.m in Sources */,
 				715B4AC21D7D693F00F8C338 /* PublicCloudCatalogTableViewCell.m in Sources */,
+				71B380F91D828814005B0EF2 /* TransportListViewController.m in Sources */,
 				715B4A921D7D4D2600F8C338 /* main.m in Sources */,
 				71A0FBD21D8160DC000642B8 /* UILabel+LXAdd.m in Sources */,
 				715B4AB21D7D52EC00F8C338 /* PublicCloudViewController.m in Sources */,
