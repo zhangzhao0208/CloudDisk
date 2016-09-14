@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		7109A76A1D7E6D0F00C520BC /* CatalogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7109A7691D7E6D0F00C520BC /* CatalogViewController.m */; };
+		714AF1E41D87DB7D00931DF4 /* FileDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 714AF1E31D87DB7D00931DF4 /* FileDownloadManager.m */; };
+		714AF1E71D87DDB900931DF4 /* FileManagerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 714AF1E61D87DDB900931DF4 /* FileManagerButton.m */; };
+		714AF1EA1D88025A00931DF4 /* RoundProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 714AF1E91D88025A00931DF4 /* RoundProgress.m */; };
+		715AB3C71D87885300F62E3B /* UploadListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AB3C61D87885300F62E3B /* UploadListViewController.m */; };
+		715AB3CA1D879E8700F62E3B /* HTTPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 715AB3C91D879E8700F62E3B /* HTTPRequestManager.m */; };
 		715B4A921D7D4D2600F8C338 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B4A911D7D4D2600F8C338 /* main.m */; };
 		715B4A951D7D4D2600F8C338 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B4A941D7D4D2600F8C338 /* AppDelegate.m */; };
 		715B4A981D7D4D2600F8C338 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B4A971D7D4D2600F8C338 /* ViewController.m */; };
@@ -30,6 +35,7 @@
 		71A0FBD51D81653C000642B8 /* SearchBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A0FBD41D81653C000642B8 /* SearchBackgroundView.m */; };
 		71B380F91D828814005B0EF2 /* TransportListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B380F81D828814005B0EF2 /* TransportListViewController.m */; };
 		71B380FC1D828C76005B0EF2 /* TransportListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B380FB1D828C76005B0EF2 /* TransportListTableViewCell.m */; };
+		71D19FD11D864791001EA2DC /* DownListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D19FD01D864791001EA2DC /* DownListViewController.m */; };
 		CD8C0A2D6BAF86F3CDDC0D01 /* libPods-CloudDisk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B86388346802326CA4BAC88 /* libPods-CloudDisk.a */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +45,16 @@
 		3B86388346802326CA4BAC88 /* libPods-CloudDisk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CloudDisk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7109A7681D7E6D0F00C520BC /* CatalogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalogViewController.h; sourceTree = "<group>"; };
 		7109A7691D7E6D0F00C520BC /* CatalogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogViewController.m; sourceTree = "<group>"; };
+		714AF1E21D87DB7D00931DF4 /* FileDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDownloadManager.h; sourceTree = "<group>"; };
+		714AF1E31D87DB7D00931DF4 /* FileDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDownloadManager.m; sourceTree = "<group>"; };
+		714AF1E51D87DDB900931DF4 /* FileManagerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManagerButton.h; sourceTree = "<group>"; };
+		714AF1E61D87DDB900931DF4 /* FileManagerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManagerButton.m; sourceTree = "<group>"; };
+		714AF1E81D88025A00931DF4 /* RoundProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundProgress.h; sourceTree = "<group>"; };
+		714AF1E91D88025A00931DF4 /* RoundProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundProgress.m; sourceTree = "<group>"; };
+		715AB3C51D87885200F62E3B /* UploadListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadListViewController.h; sourceTree = "<group>"; };
+		715AB3C61D87885300F62E3B /* UploadListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadListViewController.m; sourceTree = "<group>"; };
+		715AB3C81D879E8700F62E3B /* HTTPRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRequestManager.h; sourceTree = "<group>"; };
+		715AB3C91D879E8700F62E3B /* HTTPRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRequestManager.m; sourceTree = "<group>"; };
 		715B4A8D1D7D4D2600F8C338 /* CloudDisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudDisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		715B4A911D7D4D2600F8C338 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		715B4A931D7D4D2600F8C338 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,6 +96,8 @@
 		71B380F81D828814005B0EF2 /* TransportListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransportListViewController.m; sourceTree = "<group>"; };
 		71B380FA1D828C76005B0EF2 /* TransportListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransportListTableViewCell.h; sourceTree = "<group>"; };
 		71B380FB1D828C76005B0EF2 /* TransportListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransportListTableViewCell.m; sourceTree = "<group>"; };
+		71D19FCF1D864791001EA2DC /* DownListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownListViewController.h; sourceTree = "<group>"; };
+		71D19FD01D864791001EA2DC /* DownListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +169,10 @@
 		715B4AAB1D7D4E3F00F8C338 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				715AB3C81D879E8700F62E3B /* HTTPRequestManager.h */,
+				715AB3C91D879E8700F62E3B /* HTTPRequestManager.m */,
+				714AF1E21D87DB7D00931DF4 /* FileDownloadManager.h */,
+				714AF1E31D87DB7D00931DF4 /* FileDownloadManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -165,6 +187,10 @@
 				71A0FBD41D81653C000642B8 /* SearchBackgroundView.m */,
 				71B380FA1D828C76005B0EF2 /* TransportListTableViewCell.h */,
 				71B380FB1D828C76005B0EF2 /* TransportListTableViewCell.m */,
+				714AF1E51D87DDB900931DF4 /* FileManagerButton.h */,
+				714AF1E61D87DDB900931DF4 /* FileManagerButton.m */,
+				714AF1E81D88025A00931DF4 /* RoundProgress.h */,
+				714AF1E91D88025A00931DF4 /* RoundProgress.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -176,6 +202,10 @@
 				71A0FBC71D813E92000642B8 /* PrivateCloudViewController.m */,
 				71B380F71D828814005B0EF2 /* TransportListViewController.h */,
 				71B380F81D828814005B0EF2 /* TransportListViewController.m */,
+				71D19FCF1D864791001EA2DC /* DownListViewController.h */,
+				71D19FD01D864791001EA2DC /* DownListViewController.m */,
+				715AB3C51D87885200F62E3B /* UploadListViewController.h */,
+				715AB3C61D87885300F62E3B /* UploadListViewController.m */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -397,6 +427,7 @@
 			files = (
 				715B4AB81D7D56F900F8C338 /* SRConst.m in Sources */,
 				715B4A9E1D7D4D2600F8C338 /* CloudDisk.xcdatamodeld in Sources */,
+				715AB3CA1D879E8700F62E3B /* HTTPRequestManager.m in Sources */,
 				71A0FBD51D81653C000642B8 /* SearchBackgroundView.m in Sources */,
 				71A0FBC81D813E92000642B8 /* PrivateCloudViewController.m in Sources */,
 				715B4A981D7D4D2600F8C338 /* ViewController.m in Sources */,
@@ -405,16 +436,21 @@
 				71B380FC1D828C76005B0EF2 /* TransportListTableViewCell.m in Sources */,
 				715B4ABB1D7D594A00F8C338 /* CustomTopView.m in Sources */,
 				7109A76A1D7E6D0F00C520BC /* CatalogViewController.m in Sources */,
+				714AF1EA1D88025A00931DF4 /* RoundProgress.m in Sources */,
+				714AF1E41D87DB7D00931DF4 /* FileDownloadManager.m in Sources */,
 				715B8AEC1D7FF8C7004B66DD /* TotalModel.m in Sources */,
 				715B4AC51D7D7D5400F8C338 /* BottomFileView.m in Sources */,
 				715B4AC21D7D693F00F8C338 /* PublicCloudCatalogTableViewCell.m in Sources */,
+				71D19FD11D864791001EA2DC /* DownListViewController.m in Sources */,
 				71B380F91D828814005B0EF2 /* TransportListViewController.m in Sources */,
 				715B4A921D7D4D2600F8C338 /* main.m in Sources */,
 				71A0FBD21D8160DC000642B8 /* UILabel+LXAdd.m in Sources */,
 				715B4AB21D7D52EC00F8C338 /* PublicCloudViewController.m in Sources */,
 				715B4ABF1D7D5CE200F8C338 /* AdjustFontSizeView.m in Sources */,
+				715AB3C71D87885300F62E3B /* UploadListViewController.m in Sources */,
 				71A0FBCB1D814993000642B8 /* SearchBarView.m in Sources */,
 				71A0FBD11D8160DC000642B8 /* LXAlertView.m in Sources */,
+				714AF1E71D87DDB900931DF4 /* FileManagerButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

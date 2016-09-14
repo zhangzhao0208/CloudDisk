@@ -15,4 +15,7 @@ extern NSString *const transportList;
 extern NSString *const downloadList;
 extern NSString *const uploadList;
 extern NSString *const saveToAlbum;
+extern NSString *const allFilePauseDownload;
+extern NSString *const allFileBeginDownload;
+
 @end

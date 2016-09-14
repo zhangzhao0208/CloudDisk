@@ -1,9 +1,10 @@
 platform :ios, ‘7.0’
 target "CloudDisk" do
 pod 'Masonry', '~> 0.6.3'
-pod 'AFNetworking', '~> 2.4.0'
+pod 'AFNetworking', '~> 3.0.2'
 pod 'YYWebImage'
 pod 'YYText'
+pod 'UAProgressView'
 pod 'Reachability', '~> 3.0.0'
 pod 'YYModel'
 pod 'MJRefresh', '~> 3.0.1'

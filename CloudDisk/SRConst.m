@@ -16,4 +16,7 @@ NSString *const transportList = @"传输列表";
 NSString *const downloadList = @"下载列表";
 NSString *const uploadList = @"上传列表";
 NSString *const saveToAlbum = @"保存至相册";
+NSString *const allFilePauseDownload = @"全部暂停下载";
+NSString *const allFileBeginDownload = @"全部开始下载";
+
 @end

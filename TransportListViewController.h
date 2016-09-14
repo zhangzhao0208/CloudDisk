@@ -19,12 +19,17 @@
 #import "LXAlertView.h"
 #import "SearchBackgroundView.h"
 #import "TransportListTableViewCell.h"
+#import "DownListViewController.h"
+#import "UploadListViewController.h"
+
 @interface TransportListViewController : UIViewController
 @property(nonatomic,strong)UITableView*catalogTable;
-@property(nonatomic,copy)NSMutableArray*catalogArray;
-@property(nonatomic,copy)NSMutableArray*catal;
+@property(nonatomic,strong)NSMutableArray*catalogArray;
+@property(nonatomic,strong)NSMutableArray*catal;
 @property(nonatomic,assign)NSIndexPath* selectedIndexPath;
 @property(nonatomic,assign)BOOL isCellOpen;
 @property(nonatomic,assign)NSInteger recordOpenCellRow;
 @property(nonatomic,strong)UISegmentedControl*transportSegment;
+@property(nonatomic,strong)DownListViewController*downListViewControl;
+@property(nonatomic,strong)UploadListViewController*uploadListViewControl;
 @end

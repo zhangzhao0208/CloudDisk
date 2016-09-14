@@ -13,4 +13,7 @@
 @property(nonatomic,assign)BOOL selectedButton;
 @property(nonatomic,assign)BOOL isFromToolCell;
 @property(nonatomic,assign)NSInteger selectedRow;
+//下载
+@property (nonatomic,copy)NSString *length;
+@property (nonatomic,copy)NSString *tname;
 @end

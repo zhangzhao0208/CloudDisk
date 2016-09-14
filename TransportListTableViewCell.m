@@ -44,7 +44,7 @@
     _catalogName = [UILabel new];
    
     _catalogName.text=@"省公司发文";
-    _catalogName.backgroundColor =[UIColor redColor];
+//    _catalogName.backgroundColor =[UIColor redColor];
     [AdjustFontSizeView adjustTextFontSize:WIDTH WithView:_catalogName];
     CGSize textSize =[ AdjustFontSizeView labelAdjustString:  _catalogName.text WithWidth:WIDTH-70-40 WithHeight:100 withFont:_catalogName.font];
     
@@ -60,7 +60,7 @@
     
     _catalogTime = [UILabel new];
     _catalogTime.text = @"2016-06-07 12:40";
-    _catalogTime.backgroundColor =[UIColor blueColor];
+//    _catalogTime.backgroundColor =[UIColor blueColor];
 //    [AdjustFontSizeView adjustTextFontSize:WIDTH WithView:_catalogTime];
        _catalogTime.font = [UIFont systemFontOfSize:12];
     CGSize timeSize =[ AdjustFontSizeView labelAdjustString:  _catalogName.text WithWidth:WIDTH-70-40 WithHeight:100 withFont:_catalogTime.font];
@@ -74,16 +74,21 @@
         make.height.offset(timeSize.height);
     }];
     
-    _catalogButton =[UIButton buttonWithType:UIButtonTypeCustom];
-    [self addSubview:_catalogButton];
-    _catalogButton.backgroundColor =[UIColor yellowColor];
-    [_catalogButton setBackgroundImage:[UIImage imageNamed:@"menuarrow"] forState:UIControlStateNormal];
-    [_catalogButton addTarget:self action:@selector(clickCatalogButton:) forControlEvents:UIControlEventTouchUpInside];
-    [_catalogButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.offset(-15);
+    _fileManagerButton = [[FileManagerButton alloc]init];
+    
+    [self addSubview:_fileManagerButton ];
+    [_fileManagerButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.offset(-10);
         make.centerY.equalTo(_catalogImageView.mas_centerY);
-        make.width.and.height.offset(20);
+              make.width.and.height.offset(30);
+        
     }];
+    
+      //    [_catalogButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.offset(-15);
+//        make.centerY.equalTo(_catalogImageView.mas_centerY);
+//        make.width.and.height.offset(20);
+//    }];
     
 }
 
@@ -96,12 +101,10 @@
     
     if ( sender.selected ==YES) {
         
-        
-        _catalogButton.transform = CGAffineTransformMakeRotation(M_PI);
         self.insertBlock(_totalModel.selectedRow);
     }else
     {
-        _catalogButton.transform = CGAffineTransformMakeRotation(0);
+       
         self.closeCellBlock(_totalModel.selectedRow);
     }
     

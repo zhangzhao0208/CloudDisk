@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UAProgressView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YYModel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,27 +57,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>14A8CA1EEEBB65DE7BD202CB01CE72EF</key>
+		<key>2C67E5428A445B3F15F63A358BE01D49</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2602F3D0DAC534568B6AD7EEA0DD1959</key>
+		<key>30CAE9F0E39DCE6EE0AB6469C4565922</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4BDA49BCEEAA6D043EAEAEC942F9523B</key>
+		<key>34006BE8DF634FAD7C36991A1A612CDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4C4CACBF1E4A2199F2DE7A190AB861ED</key>
+		<key>3FDF76DE261FA9FEC81BB5AE78F34625</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5066228AD83CB336AD2CA1AC6900A2AE</key>
+		<key>4B226453D379A7C68527AD611DBCA8B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,12 +87,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>57972CE97872851E87BB65ECC6FEBB2B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8F74D9EA91F4C43190670066BAC37D44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9365A3230A4B20A308762D5DC58A7636</key>
+		<key>928353533005A4198EBDA5B700D37B64</key>
 		<dict>
 			<key>primary</key>
 			<true/>

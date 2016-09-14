@@ -68,7 +68,6 @@
         make.right.offset(-40);
         
     }];
-    
     _catalogTime = [UILabel new];
     _catalogTime.text = @"2016-06-07 12:40";
     _catalogTime.backgroundColor =[UIColor blueColor];
