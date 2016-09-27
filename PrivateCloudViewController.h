@@ -33,7 +33,7 @@
     UIButton*lastOperationBtn;
 }
 @property(nonatomic,strong)UITableView*catalogTable;
-@property(nonatomic,copy)NSMutableArray*catalogArray;
+@property(nonatomic,copy)NSMutableArray*publicListArray;
 @property(nonatomic,copy)NSMutableArray*catal;
 @property(nonatomic,assign)NSIndexPath* selectedIndexPath;
 @property(nonatomic,assign)BOOL isCellOpen;

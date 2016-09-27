@@ -10,17 +10,28 @@
 #define WIDTH [UIScreen mainScreen].bounds.size.width
 #define HEIGHT [UIScreen mainScreen].bounds.size.height
 #define REB(R,E,D,A) ([UIColor  colorWithRed:R/255.0 green:E/255.0 blue:D/255.0 alpha:A])
-@interface TransportListViewController ()<UITableViewDelegate,UITableViewDataSource,BottomFileViewDelegate>
+@interface TransportListViewController ()<UITableViewDelegate,UITableViewDataSource,BottomFileViewDelegate,UINavigationControllerDelegate>
 
 
 @end
 
 @implementation TransportListViewController
 
+
+//-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+//{
+//    [viewController viewWillAppear:animated];
+//}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [_downListViewControl viewWillAppear:animated];  //tabbarController直接用selectedViewController更方便
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
-
+    
+    self.navigationController.delegate=self;
      [self changeNavgationBarState];
     [self createSegmentControl];
 

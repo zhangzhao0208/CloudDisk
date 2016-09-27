@@ -17,5 +17,9 @@ extern NSString *const uploadList;
 extern NSString *const saveToAlbum;
 extern NSString *const allFilePauseDownload;
 extern NSString *const allFileBeginDownload;
-
+extern NSString *const inDownload ;
+extern NSString *const downloadOver ;
+extern NSString *const homeInformationList;
+extern NSString *const publicCloudURL;
+extern NSString *const downloadFileURL;
 @end

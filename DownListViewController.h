@@ -19,16 +19,21 @@
 #import "LXAlertView.h"
 #import "SearchBackgroundView.h"
 #import "TransportListTableViewCell.h"
-#import "HTTPRequestManager.h"
+//#import "HTTPRequestManager.h"
+#import "DownloadManagerSingletion.h"
 #import <UAProgressView/UAProgressView.h>
+#import "PublicModel.h"
 @interface DownListViewController : UIViewController
 
 {
      NSMutableDictionary     *_downloaderManager;
+    UIButton*downloadAllFile;
 }
 @property(nonatomic,strong)UITableView*catalogTable;
-@property(nonatomic,strong)NSMutableArray*catalogArray;
-@property(nonatomic,strong)NSMutableArray*catal;
+@property(nonatomic,strong)NSMutableArray*downloadOverArray;
+@property(nonatomic,strong)NSMutableArray*inDownloadArray;
+@property(nonatomic,strong)NSMutableArray*fileButtonDownState;
+@property(nonatomic,strong)NSMutableArray*fileButtonPasueState;
 @property(nonatomic,assign)NSIndexPath* selectedIndexPath;
 @property(nonatomic,assign)BOOL isCellOpen;
 @property(nonatomic,assign)NSInteger recordOpenCellRow;

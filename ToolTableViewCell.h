@@ -13,6 +13,13 @@
 #import "YYImage.h"
 #import "AdjustFontSizeView.h"
 #import "TotalModel.h"
+#import "DownloadManagerSingletion.h"
+#import "FileDownloadManager.h"
+#import "PublicModel.h"
+typedef void(^FileManagerCell)(PublicModel*);
+
 @interface ToolTableViewCell : UITableViewCell
-@property(nonatomic,strong)TotalModel*totalModel;
+@property(nonatomic,strong)PublicListModel*totalModel;
+@property(nonatomic,copy)FileManagerCell downloadFileButton;
+@property(nonatomic,copy)FileManagerCell openFileButton;
 @end

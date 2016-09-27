@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "FileDownloadManager.h"
-#import "TotalModel.h"
+
 #import <UAProgressView/UAProgressView.h>
 #import "Masonry.h"
 #import "RoundProgress.h"
+#import "PublicModel.h"
 @class FileDownloadManager;
 typedef enum : NSUInteger {
     sunday = 0,
@@ -37,10 +38,10 @@ typedef NS_ENUM(NSInteger, ButtonState){
 }
 
 @property (nonatomic,assign)ButtonState downloadState;
-
+@property(nonatomic,assign)int addProgress;
 @property (nonatomic,assign)NSProgress *progress;
 
-@property (nonatomic,strong)TotalModel *file;
+@property (nonatomic,strong)PublicListModel *file;
 @property (nonatomic,strong)FileDownloadManager *fileDownloader;
 @property(nonatomic,strong)FileManagerButton *catalogButton;
 @property(nonatomic,strong)RoundProgress*progressView;

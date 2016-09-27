@@ -10,35 +10,60 @@
 #import "TotalModel.h"
 #import "FileManagerButton.h"
 #import "AFNetworking.h"
-@interface FileDownloadManager : NSObject
+#import "AppDelegate.h"
+#import "PublicModel.h"
+#import "SRConst.h"
+@protocol FileDownloadManagerDelegate <NSObject>
+
+-(void)removeInDownloadCell:(PublicListModel*)totalModel;
+-(void)updateCatalogTable;
+@end
+
+@interface FileDownloadManager : NSObject<NSCoding,UIApplicationDelegate,NSURLSessionDataDelegate,NSURLSessionTaskDelegate,NSURLSessionDelegate>
 
 {
     AFURLSessionManager *manager;
     NSURL*url;
-}
+    NSURLSessionConfiguration *configuration;
+    NSURLSessionDownloadTask*_downLoadTask;
+    AFHTTPSessionManager *AFmanager ;
+    
 
-@property (nonatomic,retain,readonly)TotalModel *file;
-@property(nonatomic,strong)NSURLSessionDownloadTask*downLoadTask;
-@property(nonatomic,assign)NSData*recordData;
+}
+//@property (nonatomic,retain,readonly)TotalModel *file;
+
+@property (nonatomic,strong)PublicListModel *file;
+//@property(nonatomic,strong)NSURLSessionDownloadTask*downLoadTask;
+@property(nonatomic,strong)NSMutableData*recordData;
+@property(nonatomic,assign)id<FileDownloadManagerDelegate>fileDownloadManagerDelegate;
 //初始化方法，把需要下载的文件对象传进来
-- (id)initWithFile:(TotalModel *)file;
+- (id)initWithFile:(PublicListModel *)file;
 
 //开始下载
 - (void)startDownload;
-
+//开始后台下载
+-(void)startBackgroundDown;
 //取消下载
 - (void)cancelDownload;
-//继续下载
--(void)continueDown;
+//取消后台下载
+-(void)cancelBackgroundDownload;
+
 //是否正在下载
 - (BOOL)isDownloading;
-
+- (void)checkNet;
 
 + (NSString *)downloadPath;
 + (NSString *)tempPath;
 //判断一个文件是否下载完毕
-+ (BOOL)isDownloadFinish:(TotalModel *)file;
++ (BOOL)isDownloadFinish:(PublicListModel *)file;
 
 //判断一个文件是否下了一部分
-+ (BOOL)isFileDownloading:(TotalModel *)file;
++ (BOOL)isFileDownloading:(PublicListModel *)file;
+
+//自定义下载
+-(void)startDownloadFile;
+-(void)suspendDownload;
+
+
+
 @end

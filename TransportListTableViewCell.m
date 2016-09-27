@@ -8,6 +8,7 @@
 
 #import "TransportListTableViewCell.h"
 #define WIDTH self.frame.size.width
+#define REB(R,E,D,A) ([UIColor  colorWithRed:R/255.0 green:E/255.0 blue:D/255.0 alpha:A])
 @implementation TransportListTableViewCell
 
 
@@ -24,16 +25,35 @@
 }
 
 
--(void)setTotalModel:(TotalModel *)totalModel
+-(void)setTotalModel:(PublicListModel *)totalModel
 {
     _totalModel = totalModel;
+     
+    _catalogImageView.image = [UIImage imageNamed:@"off"];
+    _fileManagerButton.addProgress=1;
+    _catalogName.text=_totalModel.name;
+    //    NSLog(@"==%@",_totalModel.name);
+    //    _catalogName.text=@"sadasas";
+    [AdjustFontSizeView adjustTextFontSize:WIDTH WithView:_catalogName];
+   CGSize textSize =[ AdjustFontSizeView labelAdjustString:  _catalogName.text WithWidth:WIDTH-70-40 WithHeight:100 withFont:_catalogName.font];
+    [_catalogName mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.offset(textSize.height);
+        
+    }];
+    
+    _catalogTime.text = _totalModel.createdate;
+    CGSize timeSize =[ AdjustFontSizeView labelAdjustString:  _catalogName.text WithWidth:WIDTH-70-40 WithHeight:100 withFont:_catalogTime.font];
+    [_catalogTime mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.offset(timeSize.height);
+        
+    }];
     
 }
 -(void)createCellContent
 {
     _catalogImageView = [UIImageView new];
     [self addSubview:_catalogImageView];
-    _catalogImageView.image = [UIImage imageNamed:@"off"];
+    
     [_catalogImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(10);
         make.top.offset(5);
@@ -42,53 +62,43 @@
         
     }];
     _catalogName = [UILabel new];
-   
-    _catalogName.text=@"省公司发文";
-//    _catalogName.backgroundColor =[UIColor redColor];
-    [AdjustFontSizeView adjustTextFontSize:WIDTH WithView:_catalogName];
-    CGSize textSize =[ AdjustFontSizeView labelAdjustString:  _catalogName.text WithWidth:WIDTH-70-40 WithHeight:100 withFont:_catalogName.font];
-    
     [self addSubview:_catalogName];
-    
     [_catalogName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_catalogImageView.mas_right).offset(10);
         make.top.offset (10);
-        make.height.offset(textSize.height);
         make.right.offset(-40);
         
     }];
     
     _catalogTime = [UILabel new];
-    _catalogTime.text = @"2016-06-07 12:40";
-//    _catalogTime.backgroundColor =[UIColor blueColor];
-//    [AdjustFontSizeView adjustTextFontSize:WIDTH WithView:_catalogTime];
-       _catalogTime.font = [UIFont systemFontOfSize:12];
-    CGSize timeSize =[ AdjustFontSizeView labelAdjustString:  _catalogName.text WithWidth:WIDTH-70-40 WithHeight:100 withFont:_catalogTime.font];
- 
+    _catalogTime.font = [UIFont systemFontOfSize:12];
     [self addSubview:_catalogTime];
     [_catalogTime mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_catalogName.mas_bottom);
         make.width.equalTo(_catalogName.mas_width);
         make.left.equalTo(_catalogImageView.mas_right).offset(10);
-        //        make.bottom.offset(-5);
-        make.height.offset(timeSize.height);
+     
     }];
     
     _fileManagerButton = [[FileManagerButton alloc]init];
-    
     [self addSubview:_fileManagerButton ];
     [_fileManagerButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.offset(-10);
         make.centerY.equalTo(_catalogImageView.mas_centerY);
-              make.width.and.height.offset(30);
+        make.width.and.height.offset(30);
         
     }];
-    
-      //    [_catalogButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.right.offset(-15);
-//        make.centerY.equalTo(_catalogImageView.mas_centerY);
-//        make.width.and.height.offset(20);
-//    }];
+    UIView*lineView =[UIView new];
+    lineView.backgroundColor=REB(200, 199, 204, 1);
+    [self addSubview:lineView];
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(0);
+        make.right.offset(0);
+        make.bottom.offset(-1);
+        make.height.offset(1);
+    }];
+
+
     
 }
 

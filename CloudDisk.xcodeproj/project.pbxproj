@@ -28,6 +28,7 @@
 		715B4AC51D7D7D5400F8C338 /* BottomFileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B4AC41D7D7D5400F8C338 /* BottomFileView.m */; };
 		715B8AE91D7FB645004B66DD /* ToolTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B8AE81D7FB645004B66DD /* ToolTableViewCell.m */; };
 		715B8AEC1D7FF8C7004B66DD /* TotalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 715B8AEB1D7FF8C7004B66DD /* TotalModel.m */; };
+		7160C8841D990F5300AA6A33 /* PublicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7160C8831D990F5300AA6A33 /* PublicModel.m */; };
 		71A0FBC81D813E92000642B8 /* PrivateCloudViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A0FBC71D813E92000642B8 /* PrivateCloudViewController.m */; };
 		71A0FBCB1D814993000642B8 /* SearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A0FBCA1D814993000642B8 /* SearchBarView.m */; };
 		71A0FBD11D8160DC000642B8 /* LXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A0FBCE1D8160DC000642B8 /* LXAlertView.m */; };
@@ -36,6 +37,7 @@
 		71B380F91D828814005B0EF2 /* TransportListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B380F81D828814005B0EF2 /* TransportListViewController.m */; };
 		71B380FC1D828C76005B0EF2 /* TransportListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B380FB1D828C76005B0EF2 /* TransportListTableViewCell.m */; };
 		71D19FD11D864791001EA2DC /* DownListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D19FD01D864791001EA2DC /* DownListViewController.m */; };
+		71F69CFD1D9108F300BCBAAD /* DownloadManagerSingletion.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F69CFC1D9108F300BCBAAD /* DownloadManagerSingletion.m */; };
 		CD8C0A2D6BAF86F3CDDC0D01 /* libPods-CloudDisk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B86388346802326CA4BAC88 /* libPods-CloudDisk.a */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,8 @@
 		715B8AE81D7FB645004B66DD /* ToolTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolTableViewCell.m; sourceTree = "<group>"; };
 		715B8AEA1D7FF8C7004B66DD /* TotalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalModel.h; sourceTree = "<group>"; };
 		715B8AEB1D7FF8C7004B66DD /* TotalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalModel.m; sourceTree = "<group>"; };
+		7160C8821D990F5300AA6A33 /* PublicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicModel.h; sourceTree = "<group>"; };
+		7160C8831D990F5300AA6A33 /* PublicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicModel.m; sourceTree = "<group>"; };
 		71A0FBC61D813E92000642B8 /* PrivateCloudViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateCloudViewController.h; sourceTree = "<group>"; };
 		71A0FBC71D813E92000642B8 /* PrivateCloudViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateCloudViewController.m; sourceTree = "<group>"; };
 		71A0FBC91D814993000642B8 /* SearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBarView.h; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 		71B380FB1D828C76005B0EF2 /* TransportListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransportListTableViewCell.m; sourceTree = "<group>"; };
 		71D19FCF1D864791001EA2DC /* DownListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownListViewController.h; sourceTree = "<group>"; };
 		71D19FD01D864791001EA2DC /* DownListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownListViewController.m; sourceTree = "<group>"; };
+		71F69CFB1D9108F200BCBAAD /* DownloadManagerSingletion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadManagerSingletion.h; sourceTree = "<group>"; };
+		71F69CFC1D9108F300BCBAAD /* DownloadManagerSingletion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadManagerSingletion.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,10 +175,10 @@
 		715B4AAB1D7D4E3F00F8C338 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				715AB3C81D879E8700F62E3B /* HTTPRequestManager.h */,
-				715AB3C91D879E8700F62E3B /* HTTPRequestManager.m */,
 				714AF1E21D87DB7D00931DF4 /* FileDownloadManager.h */,
 				714AF1E31D87DB7D00931DF4 /* FileDownloadManager.m */,
+				71F69CFB1D9108F200BCBAAD /* DownloadManagerSingletion.h */,
+				71F69CFC1D9108F300BCBAAD /* DownloadManagerSingletion.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -246,6 +252,8 @@
 			children = (
 				715B8AEA1D7FF8C7004B66DD /* TotalModel.h */,
 				715B8AEB1D7FF8C7004B66DD /* TotalModel.m */,
+				7160C8821D990F5300AA6A33 /* PublicModel.h */,
+				7160C8831D990F5300AA6A33 /* PublicModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -272,6 +280,8 @@
 				715B4AB71D7D56F900F8C338 /* SRConst.m */,
 				715B8AE71D7FB645004B66DD /* ToolTableViewCell.h */,
 				715B8AE81D7FB645004B66DD /* ToolTableViewCell.m */,
+				715AB3C81D879E8700F62E3B /* HTTPRequestManager.h */,
+				715AB3C91D879E8700F62E3B /* HTTPRequestManager.m */,
 			);
 			name = CommondTool;
 			sourceTree = "<group>";
@@ -445,10 +455,12 @@
 				71B380F91D828814005B0EF2 /* TransportListViewController.m in Sources */,
 				715B4A921D7D4D2600F8C338 /* main.m in Sources */,
 				71A0FBD21D8160DC000642B8 /* UILabel+LXAdd.m in Sources */,
+				71F69CFD1D9108F300BCBAAD /* DownloadManagerSingletion.m in Sources */,
 				715B4AB21D7D52EC00F8C338 /* PublicCloudViewController.m in Sources */,
 				715B4ABF1D7D5CE200F8C338 /* AdjustFontSizeView.m in Sources */,
 				715AB3C71D87885300F62E3B /* UploadListViewController.m in Sources */,
 				71A0FBCB1D814993000642B8 /* SearchBarView.m in Sources */,
+				7160C8841D990F5300AA6A33 /* PublicModel.m in Sources */,
 				71A0FBD11D8160DC000642B8 /* LXAlertView.m in Sources */,
 				714AF1E71D87DDB900931DF4 /* FileManagerButton.m in Sources */,
 			);

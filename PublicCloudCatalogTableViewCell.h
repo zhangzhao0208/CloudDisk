@@ -12,10 +12,13 @@
 #import "YYText.h"
 #import "AdjustFontSizeView.h"
 #import "TotalModel.h"
-
+#import "PublicModel.h"
 typedef void(^InsertCellBlock)(NSInteger);
 @interface PublicCloudCatalogTableViewCell : UITableViewCell
-
+{
+    CGSize textSize;
+    CGSize timeSize;
+}
 @property(nonatomic,strong)UILabel *catalogName;
 @property(nonatomic,strong)UILabel *catalogTime;
 @property(nonatomic,strong)UIImageView *catalogImageView;
@@ -24,6 +27,6 @@ typedef void(^InsertCellBlock)(NSInteger);
 @property(nonatomic,copy)InsertCellBlock insertBlock;
 @property(nonatomic,copy)InsertCellBlock closeCellBlock;
 @property(nonatomic,assign)NSInteger insertIndex;
-@property(nonatomic,strong)TotalModel*totalModel;
+@property(nonatomic,strong)PublicListModel*totalModel;
 @property(nonatomic,assign)NSInteger selectedRow;
 @end

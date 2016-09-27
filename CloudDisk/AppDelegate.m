@@ -10,6 +10,11 @@
 
 #import "AppDelegate.h"
 #import "PublicCloudViewController.h"
+#define WIDTH [UIScreen mainScreen].bounds.size.width
+#define HEIGHT [UIScreen mainScreen].bounds.size.height
+#define REB(R,E,D,A) ([UIColor  colorWithRed:R/255.0 green:E/255.0 blue:D/255.0 alpha:A])
+#define DOWNSINGLETION [DownloadManagerSingletion singletion]
+#define USERD [NSUserDefaults standardUserDefaults]
 @interface AppDelegate ()
 
 @end
@@ -23,12 +28,21 @@
     self.window =[[UIApplication sharedApplication].delegate window];
     [self.window makeKeyWindow];
     PublicCloudViewController * publicCloudViewController = [PublicCloudViewController new];
-    
-
     UINavigationController*publicNav =[[UINavigationController alloc]initWithRootViewController:publicCloudViewController];
        self.window.rootViewController = publicNav;
+    NSData*downloadOverArrayData = [USERD objectForKey:@"downloadOverArray"];
+    DOWNSINGLETION.downloadOverArray = [AppDelegate returnNSMutableArrayWithDataPath:downloadOverArrayData];
+    NSData*inDownloadArrayData = [USERD objectForKey:@"inDownloadArray"];
+    DOWNSINGLETION.inDownloadArray = [AppDelegate returnNSMutableArrayWithDataPath:inDownloadArrayData];
     
+    NSData*downloaderManagerData = [USERD objectForKey:@"downloaderManager"];
+    DOWNSINGLETION.downloaderManager = [AppDelegate returnNSMutableDictionaryWithDataPath:downloaderManagerData];
     return YES;
+}
+
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler
+{
+    self.backgroundSessionCompletionHandler = completionHandler;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -37,19 +51,145 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+         NSLog(@"%@,我是：",[NSThread currentThread]);
+        for (TotalModel*totalModel in DOWNSINGLETION.inDownloadArray) {
+            if (totalModel.isEnterDownloadControl==YES) {
+                FileDownloadManager *fileD = [[DownloadManagerSingletion singletion].downloaderManager objectForKey: totalModel.tname];
+                fileD.file = totalModel;
+                [fileD cancelDownload];
+                
+            }else
+            {
+                break;
+            }
+            
+        }
+
+    });
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+      
+        for (TotalModel*totalModel in DOWNSINGLETION.inDownloadArray) {
+            if (totalModel.isEnterDownloadControl==YES) {
+                FileDownloadManager *fileD = [[DownloadManagerSingletion singletion].downloaderManager objectForKey: totalModel.tname];
+                fileD.file = totalModel;
+                [fileD startBackgroundDown];
+                
+            }else
+            {
+                break;
+            }
+            
+        }
+
+        
+    });
+    
+
+    
+   
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
++(NSData *)returnDataWithNSMutableDictionary:(NSMutableDictionary *)dict
+{
+    NSMutableData * data = [[NSMutableData alloc] init];
+    NSKeyedArchiver * archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:dict forKey:@"talkData"];
+    [archiver finishEncoding];
+    return data;
+}
+
++(NSData *)returnDataWithNSMutableArray:(NSMutableArray *)dict
+{
+    NSMutableData * data = [[NSMutableData alloc] init];
+    NSKeyedArchiver * archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:dict forKey:@"talkData"];
+    [archiver finishEncoding];
+    return data;
+}
+//路径文件转dictonary
++(NSMutableArray *)returnNSMutableArrayWithDataPath:(NSData *)data
+{
+    NSKeyedUnarchiver * unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    NSMutableArray * myDictionary = [unarchiver decodeObjectForKey:@"talkData"] ;
+    [unarchiver finishDecoding];
+    
+    return myDictionary;
+}
++(NSMutableDictionary *)returnNSMutableDictionaryWithDataPath:(NSData *)data
+{
+    NSKeyedUnarchiver * unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    NSMutableDictionary * myDictionary = [unarchiver decodeObjectForKey:@"talkData"] ;
+    [unarchiver finishDecoding];
+    
+    return myDictionary;
+}
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+    
+    
+    for (TotalModel*totalModel in DOWNSINGLETION.inDownloadArray) {
+        
+        if (totalModel.isEnterDownloadControl==YES) {
+            FileDownloadManager *fileD = [DOWNSINGLETION.downloaderManager objectForKey: totalModel.tname];
+            fileD.file = totalModel;
+            [fileD cancelBackgroundDownload];
+            
+        }else
+        {
+            break;
+        }
+        
+    }
+
+  
+   
+   
+    
+    
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    
+  
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        for (TotalModel*totalModel in DOWNSINGLETION.inDownloadArray) {
+//            
+//            if (totalModel.isEnterDownloadControl==YES) {
+//                FileDownloadManager *fileD = [DOWNSINGLETION.downloaderManager objectForKey: totalModel.tname];
+//                fileD.file = totalModel;
+//                [fileD startDownload];
+//                
+//            }else
+//            {
+//                break;
+//            }
+//            
+//        }
+//
+//    });
+    
+    
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        NSLog(@"%@,我是：",[NSThread currentThread]);
+        NSData*downloadOverArrayData = [AppDelegate returnDataWithNSMutableArray:DOWNSINGLETION.downloadOverArray];
+        [USERD setObject:downloadOverArrayData forKey:@"downloadOverArray"];
+        NSData*inDownloadArrayData = [AppDelegate returnDataWithNSMutableArray:DOWNSINGLETION.inDownloadArray];
+        [USERD setObject:inDownloadArrayData forKey:@"inDownloadArray"];
+        
+        NSData*downloaderManagerData = [AppDelegate returnDataWithNSMutableDictionary:DOWNSINGLETION.downloaderManager ];
+        [USERD setObject:downloaderManagerData forKey:@"downloaderManager"];
+        
+    });
+
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];

@@ -10,6 +10,7 @@
 #import "TotalModel.h"
 #import "Masonry.h"
 #import "YYText.h"
+#import "YYModel.h"
 #import "SRConst.h"
 #import "CustomTopView.h"
 #import "AdjustFontSizeView.h"
@@ -18,6 +19,8 @@
 #import "CatalogViewController.h"
 #import "ToolTableViewCell.h"
 #import "PrivateCloudViewController.h"
+#import "HTTPRequestManager.h"
+#import "PublicModel.h"
 @interface PublicCloudViewController : UIViewController
 
 
@@ -27,11 +30,11 @@
     UIView * moreOperatinView;
     UIView * recordMoreView;
     UIImageView*arrowImageView;
-    
+      UIButton*lastOperationBtn;
     
 }
 @property(nonatomic,strong)UITableView*catalogTable;
-@property(nonatomic,copy)NSMutableArray*catalogArray;
+@property(nonatomic,copy)NSMutableArray*publicListArray;
 @property(nonatomic,copy)NSMutableArray*catal;
 @property(nonatomic,assign)NSIndexPath* selectedIndexPath;
 @property(nonatomic,assign)BOOL isCellOpen;

@@ -10,6 +10,7 @@
 #define REB(R,E,D,A) ([UIColor  colorWithRed:R/255.0 green:E/255.0 blue:D/255.0 alpha:A])
 #define USERD [NSUserDefaults standardUserDefaults]
 #define WIDTH self.frame.size.width
+#define DOWNSINGLETION [DownloadManagerSingletion singletion]
 @implementation ToolTableViewCell
 
 
@@ -21,6 +22,11 @@
         [self createBottmButtonView];
     }
     return self;
+}
+
+-(void)setTotalModel:(PublicListModel *)totalModel
+{
+    _totalModel =totalModel;
 }
 -(void)createBottmButtonView
 {
@@ -58,7 +64,7 @@
         }];
         
         [fileButton layoutIfNeeded];
-        NSLog(@"--%f",fileButton.titleLabel.frame.size.width);
+//        NSLog(@"--%f",fileButton.titleLabel.frame.size.width);
            fileButton.imageEdgeInsets = UIEdgeInsetsMake(5,0,5,0);
           fileButton.titleEdgeInsets = UIEdgeInsetsMake(5, 0, 5, 0);
         fileButton.imageView.bounds = CGRectMake(0, 0, 20, 20);
@@ -76,13 +82,53 @@
     
     if (sender.tag==100) {
         
+//        self.downloadFileButton(_totalModel);
+        
+        NSLog(@"--%@",_totalModel);
+        NSLog(@"--%@",_totalModel.name);
+       
+               //创建下载器时，需要给button设置关联的下载器
+        FileDownloadManager *fileD = [DOWNSINGLETION.downloaderManager objectForKey: _totalModel.name];
+        if (!fileD) {
+            _totalModel.isEnterDownloadControl=YES;
+            fileD = [[FileDownloadManager alloc] initWithFile:_totalModel];
+            [DOWNSINGLETION.downloaderManager setObject:fileD forKey: _totalModel.name];
+            [DOWNSINGLETION.inDownloadArray addObject:_totalModel];
+            [fileD checkNet];
+            //            [fileD startBackgroundDown];
+            [fileD startDownload];
+            
+//            [fileD startDownloadFile];
+//
+        }else
+        {
+            NSLog(@"--已经存在");
+            [fileD cancelDownload];
+        }
+        
+
         
     }else
     {
-        
+//        self.openFileButton(_totalModel);
     }
 }
-
++(NSData *)returnDataWithNSMutableArray:(NSMutableArray *)dict
+{
+    NSMutableData * data = [[NSMutableData alloc] init];
+    NSKeyedArchiver * archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:dict forKey:@"talkData"];
+    [archiver finishEncoding];
+    return data;
+}
++(NSData *)returnDataWithNSDictionary:(NSMutableDictionary *)dict
+{
+    NSMutableData * data = [[NSMutableData alloc] init];
+    NSKeyedArchiver * archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:dict forKey:@"talkData"];
+    [archiver finishEncoding];
+    return data;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

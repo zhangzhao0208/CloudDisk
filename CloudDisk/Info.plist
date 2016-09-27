@@ -12,7 +12,7 @@
 	<key>UIStatusBarStyle</key>
 	<string> UIStatusBarStyleLightContent</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>zh_CN</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

@@ -29,11 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-        _catal =[NSMutableArray array];
-    for (int a =0; a<10; a++) {
-        TotalModel * totalModel =[TotalModel new];
-        [_catal addObject:totalModel];
-    }
     [self changeNavgationBarState];
 
    //    [self createTopView];
@@ -54,8 +49,6 @@
     [rightBtn addTarget:self action:@selector(clickRightButton) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem*rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightBtn];
     self.navigationItem.rightBarButtonItem = rightItem;
-    
-    
     self.view.backgroundColor =[UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets=NO;
 
@@ -67,6 +60,7 @@
     [self.view addSubview:_catalogTable];
     _catalogTable.delegate = self;
     _catalogTable.dataSource = self;
+    _catalogTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     [_catalogTable registerClass:[PublicCloudCatalogTableViewCell class] forCellReuseIdentifier:@"PublicCloudCatalogTableViewCell"];
      [_catalogTable registerClass:[ToolTableViewCell class] forCellReuseIdentifier:@"ToolTableViewCell"];
     [_catalogTable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -78,16 +72,29 @@
    
     }];
 //    self.selectedIndexPath=nil;
+    [HTTPRequestManager HTTPRequestPublicCloudInformationList:0 WithCompletion:^(NSDictionary *dic, NSError *error) {
+
+         NSLog(@"===%@",dic);
+        PublicModel*publicModel =[PublicModel yy_modelWithJSON:dic];
+        _publicListArray = publicModel.resultList;
+//
+        NSIndexSet *indexSet =[NSIndexSet indexSetWithIndex:0];
+        [_catalogTable reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+        
+    }];
+    
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _catalogArray.count+_catal.count;
+    
+    return _publicListArray.count+_catal.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TotalModel *totalModel =_catal[indexPath.row];
+    PublicListModel *totalModel =_publicListArray[indexPath.row];
 //    NSLog(@"--%@",_catal);
     if (totalModel.isFromToolCell==NO) {
         PublicCloudCatalogTableViewCell*cell =[tableView dequeueReusableCellWithIdentifier:@"PublicCloudCatalogTableViewCell" forIndexPath:indexPath];
@@ -103,9 +110,9 @@
             
             if (_isCellOpen==NO) {
                 
-                TotalModel*insertTotalModel =[TotalModel new];
+                PublicListModel*insertTotalModel =[PublicListModel new];
                 insertTotalModel.isFromToolCell=YES;
-                [_catal insertObject:insertTotalModel atIndex:insertIndex+1];
+                [_publicListArray insertObject:insertTotalModel atIndex:insertIndex+1];
                 
                 NSIndexPath*insertIndexPath =[NSIndexPath indexPathForRow:insertIndex+1 inSection:0];
                 [_catalogTable insertRowsAtIndexPaths:@[insertIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -116,7 +123,7 @@
             {
 
                 //移除数组中上次加入的对象,删除对应的cell
-                [_catal removeObjectAtIndex:_recordOpenCellRow];
+                [_publicListArray removeObjectAtIndex:_recordOpenCellRow];
                   NSIndexPath*lastIndexPath =[NSIndexPath indexPathForRow:_recordOpenCellRow inSection:0];
                 [_catalogTable deleteRowsAtIndexPaths:@[lastIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
                 
@@ -125,14 +132,14 @@
                PublicCloudCatalogTableViewCell*cell=  [_catalogTable cellForRowAtIndexPath:lastCellPath];
                 cell.catalogButton.transform = CGAffineTransformMakeRotation(0);
                 //把上一个展开的cell的对象属性,恢复到未展开状态
-                TotalModel*lastTotalModel =[_catal objectAtIndex:_recordOpenCellRow-1];
+                PublicListModel*lastTotalModel =[_catal objectAtIndex:_recordOpenCellRow-1];
                
                 lastTotalModel.selectedButton=NO;
                 
                 //让新的cell展开.
-                TotalModel*insertTotalModel =[TotalModel new];
+                PublicListModel*insertTotalModel =[PublicListModel new];
                 insertTotalModel.isFromToolCell=YES;
-                [_catal insertObject:insertTotalModel atIndex:insertIndex+1];
+                [_publicListArray insertObject:insertTotalModel atIndex:insertIndex+1];
                 NSIndexPath*insertIndexPath =[NSIndexPath indexPathForRow:insertIndex+1 inSection:0];
                 [_catalogTable insertRowsAtIndexPaths:@[insertIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
                  _recordOpenCellRow = insertIndex+1;
@@ -145,7 +152,7 @@
         //闭合cell
         cell.closeCellBlock =^(NSInteger insertIndex)
         {
-            [_catal removeObjectAtIndex:insertIndex+1];
+            [_publicListArray removeObjectAtIndex:insertIndex+1];
             NSIndexPath*lastIndexPath =[NSIndexPath indexPathForRow:insertIndex+1 inSection:0];
             [_catalogTable deleteRowsAtIndexPaths:@[lastIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
               _isCellOpen=NO;
@@ -158,8 +165,10 @@
 
     }else
     {
+         PublicListModel *toolTotalModel =_publicListArray[indexPath.row-1];
        ToolTableViewCell*cell =[tableView dequeueReusableCellWithIdentifier:@"ToolTableViewCell" forIndexPath:indexPath];
         totalModel.selectedRow = indexPath.row;
+        cell.totalModel = toolTotalModel;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
@@ -169,10 +178,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    PublicListModel *totalModel =_publicListArray[indexPath.row];
         if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[PublicCloudCatalogTableViewCell class]]) {
-            NSLog(@"-++++++++-%ld",indexPath.row);
-            NSString*str =[NSString stringWithFormat:@"省公司文件%ld",indexPath.row];
-            CatalogViewController *catalogViewController =[[CatalogViewController alloc]initWithFileName:str];
+            CatalogViewController *catalogViewController =[[CatalogViewController alloc]initWithFileName:totalModel.name];
             [self.navigationController pushViewController:catalogViewController animated:YES];
             
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -185,7 +193,6 @@
     
           return 60;
     
-  
 }
 
 -(void)createCatelogNameView
@@ -330,8 +337,33 @@
 
 -(void)clickMoreOperationButton:(UIButton*)sender
 {
-    
-      NSLog(@"传输列表");
+    if (sender.tag==200) {
+        
+        lastOperationBtn.selected=NO;
+        [UIView animateWithDuration:0.2 animations:^{
+            
+            [arrowImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+                
+                make.width.offset(0);
+                make.height.offset(0);
+            }];
+            [moreOperatinView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.right.offset(-60.0f*WIDTH/720.0f);
+                make.width.offset(0);
+                make.height.offset(0);
+                
+            }];
+            [self.view layoutIfNeeded];
+            
+        } completion:^(BOOL finished) {
+            TransportListViewController *transportlistViewController =[TransportListViewController new];
+            [self.navigationController pushViewController:transportlistViewController animated:YES];
+            [self.view setNeedsUpdateConstraints];
+            [self.view updateConstraintsIfNeeded];
+        }];
+        
+    }
+
 }
 -(void)createTopView
 {

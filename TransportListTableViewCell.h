@@ -25,7 +25,7 @@ typedef void(^InsertCellBlock)(NSInteger);
 @property(nonatomic,copy)InsertCellBlock insertBlock;
 @property(nonatomic,copy)InsertCellBlock closeCellBlock;
 @property(nonatomic,assign)NSInteger insertIndex;
-@property(nonatomic,strong)TotalModel*totalModel;
+@property(nonatomic,strong)PublicListModel*totalModel;
 @property(nonatomic,assign)NSInteger selectedRow;
 @property(nonatomic,strong)UAProgressView*progressView;
 

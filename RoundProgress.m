@@ -109,7 +109,7 @@
     float fontSize = 14;
     UIColor *arcColor = [UIColor blueColor];
     if (_percent == 1) {
-        percent = @"100%";
+       
         fontSize = 14;
         arcColor = (_arcFinishColor == nil) ? [UIColor greenColor] : _arcFinishColor;
         

@@ -11,6 +11,9 @@
 #define WIDTH [UIScreen mainScreen].bounds.size.width
 #define HEIGHT [UIScreen mainScreen].bounds.size.height
 #define REB(R,E,D,A) ([UIColor  colorWithRed:R/255.0 green:E/255.0 blue:D/255.0 alpha:A])
+#define DOWNSINGLETION [DownloadManagerSingletion singletion]
+#define USERD [NSUserDefaults standardUserDefaults]
+
 @interface PrivateCloudViewController ()<UITableViewDelegate,UITableViewDataSource,BottomFileViewDelegate,SearchBackgroundViewDelegate>
 
 @end
@@ -19,11 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _catal =[NSMutableArray array];
-    for (int a =0; a<10; a++) {
-        TotalModel * totalModel =[TotalModel new];
-        [_catal addObject:totalModel];
-    }
+   
     [self changeNavgationBarState];
     [self createSearchView];
     //    [self createTopView];
@@ -130,18 +129,18 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _catalogArray.count+_catal.count;
+    return _publicListArray.count+_catal.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TotalModel *totalModel =_catal[indexPath.row];
+    PublicListModel *totalModel =_publicListArray[indexPath.row];
     //    NSLog(@"--%@",_catal);
     if (totalModel.isFromToolCell==NO) {
         PublicCloudCatalogTableViewCell*cell =[tableView dequeueReusableCellWithIdentifier:@"PublicCloudCatalogTableViewCell" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
         totalModel.selectedRow = indexPath.row;
-        
+//        NSLog(@"--%@",totalModel);
         cell.totalModel = totalModel;
         
         //展开cell;
@@ -149,9 +148,9 @@
     
             if (_isCellOpen==NO) {
                 
-                TotalModel*insertTotalModel =[TotalModel new];
+                PublicListModel*insertTotalModel =[PublicListModel new];
                 insertTotalModel.isFromToolCell=YES;
-                [_catal insertObject:insertTotalModel atIndex:insertIndex+1];
+                [_publicListArray insertObject:insertTotalModel atIndex:insertIndex+1];
                 
                 NSIndexPath*insertIndexPath =[NSIndexPath indexPathForRow:insertIndex+1 inSection:0];
                 [_catalogTable insertRowsAtIndexPaths:@[insertIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -162,7 +161,7 @@
             {
                 
                 //移除数组中上次加入的对象,删除对应的cell
-                [_catal removeObjectAtIndex:_recordOpenCellRow];
+                [_publicListArray removeObjectAtIndex:_recordOpenCellRow];
                 NSIndexPath*lastIndexPath =[NSIndexPath indexPathForRow:_recordOpenCellRow inSection:0];
                 [_catalogTable deleteRowsAtIndexPaths:@[lastIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
                 
@@ -171,14 +170,14 @@
                 PublicCloudCatalogTableViewCell*cell=  [_catalogTable cellForRowAtIndexPath:lastCellPath];
                 cell.catalogButton.transform = CGAffineTransformMakeRotation(0);
                 //把上一个展开的cell的对象属性,恢复到未展开状态
-                TotalModel*lastTotalModel =[_catal objectAtIndex:_recordOpenCellRow-1];
+                PublicListModel*lastTotalModel =[_publicListArray objectAtIndex:_recordOpenCellRow-1];
                 
                 lastTotalModel.selectedButton=NO;
                 
                 //让新的cell展开.
-                TotalModel*insertTotalModel =[TotalModel new];
+                PublicListModel*insertTotalModel =[PublicListModel new];
                 insertTotalModel.isFromToolCell=YES;
-                [_catal insertObject:insertTotalModel atIndex:insertIndex+1];
+                [_publicListArray insertObject:insertTotalModel atIndex:insertIndex+1];
                 NSIndexPath*insertIndexPath =[NSIndexPath indexPathForRow:insertIndex+1 inSection:0];
                 [_catalogTable insertRowsAtIndexPaths:@[insertIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
                 _recordOpenCellRow = insertIndex+1;
@@ -191,7 +190,7 @@
         //闭合cell
         cell.closeCellBlock =^(NSInteger insertIndex)
         {
-            [_catal removeObjectAtIndex:insertIndex+1];
+            [_publicListArray removeObjectAtIndex:insertIndex+1];
             NSIndexPath*lastIndexPath =[NSIndexPath indexPathForRow:insertIndex+1 inSection:0];
             [_catalogTable deleteRowsAtIndexPaths:@[lastIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             _isCellOpen=NO;
@@ -204,13 +203,35 @@
         
     }else
     {
+        //获取当前下载的cell数据
+        PublicListModel *toolTotalModel =_publicListArray[indexPath.row-1];
         ToolTableViewCell*cell =[tableView dequeueReusableCellWithIdentifier:@"ToolTableViewCell" forIndexPath:indexPath];
-        totalModel.selectedRow = indexPath.row;
+        toolTotalModel.selectedRow = indexPath.row-1;
+       
+        cell.totalModel = toolTotalModel;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        cell.totalModel.tname =[NSString stringWithFormat:@"%ld",indexPath.row-1];
+       
         
         return cell;
     }
     
+}
++(NSData *)returnDataWithNSMutableArray:(NSMutableArray *)dict
+{
+    NSMutableData * data = [[NSMutableData alloc] init];
+    NSKeyedArchiver * archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:dict forKey:@"talkData"];
+    [archiver finishEncoding];
+    return data;
+}
++(NSData *)returnDataWithNSDictionary:(NSMutableDictionary *)dict
+{
+    NSMutableData * data = [[NSMutableData alloc] init];
+    NSKeyedArchiver * archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:dict forKey:@"talkData"];
+    [archiver finishEncoding];
+    return data;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -391,6 +412,22 @@
                 
             }];
             [self.view layoutIfNeeded];
+            
+//            if ([USERD objectForKey:@"inDownloadArray"]) {
+//                DOWNSINGLETION.inDownloadArray= [PrivateCloudViewController returnDictionaryWithDataPath:[USERD objectForKey:@"inDownloadArray"]] ;
+//            }
+//            if ([USERD objectForKey:@"downloaderManager"]) {
+//                
+//                DOWNSINGLETION.downloaderManager= [PrivateCloudViewController returnNSMutableDictionaryWithDataPath:[USERD objectForKey:@"downloaderManager"]];
+//            }
+            //
+////
+          
+
+            
+            
+            
+            
         } completion:^(BOOL finished) {
             TransportListViewController *transportlistViewController =[TransportListViewController new];
             [self.navigationController pushViewController:transportlistViewController animated:YES];
@@ -401,6 +438,22 @@
         NSLog(@"传输列表");
     }
     
+}
++(NSMutableArray *)returnDictionaryWithDataPath:(NSData *)data
+{
+    NSKeyedUnarchiver * unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    NSMutableArray * myDictionary = [unarchiver decodeObjectForKey:@"talkData"] ;
+    [unarchiver finishDecoding];
+    
+    return myDictionary;
+}
++(NSMutableDictionary *)returnNSMutableDictionaryWithDataPath:(NSData *)data
+{
+    NSKeyedUnarchiver * unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    NSMutableDictionary * myDictionary = [unarchiver decodeObjectForKey:@"talkData"] ;
+    [unarchiver finishDecoding];
+    
+    return myDictionary;
 }
 
 - (void)didReceiveMemoryWarning {

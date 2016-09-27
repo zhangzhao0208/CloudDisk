@@ -8,13 +8,13 @@
 
 #import "FileManagerButton.h"
 #define NOTI_CENTER [NSNotificationCenter defaultCenter]
-
+#define USER_D [NSUserDefaults standardUserDefaults]
 #define FILE_M [NSFileManager defaultManager]
 @implementation FileManagerButton
 
 - (void)dealloc{
     [NOTI_CENTER removeObserver:self];
-   
+  
 }
 
 -(instancetype)init
@@ -29,13 +29,10 @@
     return self;
     
 }
-- (void)addNotifcation
+
+-(void)setAddProgress:(int)addProgress
 {
-   
-    
-    self.backgroundColor =[UIColor redColor];
     _catalogButton =[FileManagerButton buttonWithType:UIButtonTypeCustom];
-    _catalogButton.backgroundColor =[UIColor yellowColor];
     _catalogButton.clipsToBounds=YES;
     _catalogButton.layer.cornerRadius=5;
     _catalogButton.userInteractionEnabled=NO;
@@ -45,7 +42,7 @@
         make.center.mas_equalTo(self.center);
         
     }];
-
+    
     _progressView = [RoundProgress new];
     _progressView.userInteractionEnabled=NO;
     [self addSubview:_progressView];
@@ -57,6 +54,11 @@
         
     }];
 
+}
+- (void)addNotifcation
+{
+   
+  
    
     [NOTI_CENTER addObserver:self selector:@selector(hasNewProgress:) name:@"newProgress" object:nil];
     
@@ -75,8 +77,12 @@
 
 - (void)hasNewProgress:(NSNotification *)noti{
     //判断这个通知是否是属于自己的下载器发送的。
+    
+    NSLog(@"--%@",noti.object);
+    NSLog(@"--%@",self.fileDownloader);
     if (self.fileDownloader == noti.object) {
         //如果是，就设置新进度
+       
 //        float progress = [[noti.userInfo objectForKey:@"progress"] floatValue];
         self.progress =[noti.userInfo objectForKey:@"progress"] ;
         
@@ -100,18 +106,29 @@
             break;
         case ButtonPause:
         {
-//            NSLog(@"--%@",self.file.tname);
-//            NSLog(@"--%@",[FileDownloadManager tempPath]);
-//            NSDictionary *attr = [FILE_M attributesOfItemAtPath:[NSString stringWithFormat:@"%@/%@",[FileDownloadManager tempPath],self.file.tname] error:nil];
-//            unsigned long long tempSize = [attr fileSize];
-//            self.progress = (double)tempSize/(double)[self.file.length longLongValue];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                _progressView.percent = 1.0*self.progress.completedUnitCount/self.progress.totalUnitCount;
-                NSLog(@"--+++++-%f",_progressView.percent);
-            });
-            
 
+            if ([FILE_M fileExistsAtPath:[NSString stringWithFormat:@"%@/%@/%@",[FileDownloadManager tempPath],self.file.name,self.file.name]]) {
+                NSDictionary *attr = [FILE_M attributesOfItemAtPath:[NSString stringWithFormat:@"%@/%@/%@",[FileDownloadManager tempPath],self.file.name,self.file.name] error:nil];
+                unsigned long long tempSize = [attr fileSize];
+                NSString*str =[NSString stringWithFormat:@"5211"];
+                NSLog(@"--------++%lld",tempSize);
+                NSLog(@"+++++++%lld",[str longLongValue]);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //                _progressView.percent = 1.0*(double)tempSize/(double)[self.file.length longLongValue];
+                    _progressView.percent = 1.0*(double)tempSize/(double)[str longLongValue];
+                    
+                });
+
+            }else
+            {
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    _progressView.percent = 1.0*self.progress.completedUnitCount/self.progress.totalUnitCount;
+//             
+//                });
+
+            }
             
+           
             [self setTitle:@"继续下载" forState:UIControlStateNormal];
         }
             break;
@@ -126,21 +143,14 @@
             break;
     }
 }
-
 - (void)setProgress:(NSProgress *)progress
 {
-_progress =progress;
-//    NSLog(@"progress>>>>>>>>>%f",_progress);
-//    progress.completedUnitCount/progress.totalUnitCounts;
-//
-
-//NSLog(@"==========%lld======%lld",_progress.completedUnitCount, _progress.totalUnitCount);
+        _progress =progress;
 
     dispatch_async(dispatch_get_main_queue(), ^{
         _progressView.percent = 1.0*self.progress.completedUnitCount/self.progress.totalUnitCount;
-        NSLog(@"--+++++-%f",_progressView.percent);
+//        NSLog(@"--+++++-%lld",self.progress.completedUnitCount);
     });
-
 
 
 }
